@@ -885,23 +885,39 @@ footer {
     color: var(--cream);
 }
 .wordmark {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.05rem;
-    letter-spacing: 0.04em;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
     color: var(--cream);
     white-space: nowrap;
+    line-height: 1;
 }
-.wordmark strong {
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-right: 0.4em;
+.logo-link, .logo-link:hover { text-decoration: none; border: none; }
+.wordmark, .wordmark * { text-decoration: none; }
+.wordmark .wm-name { font-weight: 600; }
+.wordmark .wm-sub {
+    font-weight: 400;
+    opacity: 0.6;
+    margin-left: 0.35em;
+}
+.wordmark .idot {
+    position: relative;
+    display: inline-block;
+}
+.wordmark .idot .red {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #D40000;
+    top: 0;
+    left: 1px;
 }
 </style>
 </head>
 <body>
 
 <nav id="nav">
-  <a class="logo-link" href="/"><span class="wordmark"><strong>PICA</strong> MASTERING</span></a>
+  <a class="logo-link" href="/"><span class="wordmark"><span class="wm-name">P<span class="idot">&#305;<span class="red"></span></span>ca</span><span class="wm-sub">Mastering</span></span></a>
   <div class="nav-right"><div class="lang-toggle"><button class="lang-btn active" onclick="setLang('en')">EN</button><button class="lang-btn" onclick="setLang('de')">DE</button></div></div>
 </nav>
 
