@@ -113,6 +113,8 @@ footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);fon
 .footer-row{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .footer-links{display:flex;gap:1.4rem;flex-wrap:wrap}
 .footer-links a{text-decoration:none;color:var(--faint)}
+#hero,#problem,#track-check,#services,#stems,#room,#about,#faq,#contact{scroll-margin-top:82px}
+@media(max-width:900px){#hero,#problem,#track-check,#services,#stems,#room,#about,#faq,#contact{scroll-margin-top:70px}}
 @media(max-width:900px){.nav-center{display:none}.nav-cta{display:none}.pica-logo-svg{height:46px}nav{height:70px;padding:0 1.25rem}.container{padding:0 1.25rem}.hero{min-height:auto;padding:8rem 0 5rem}.split,.services-grid,.trust-grid,.form-row{grid-template-columns:1fr}section{padding:5rem 0}.service{min-height:auto}.room-visual{min-height:300px}}
 .reveal{opacity:0;transform:translateY(18px);transition:.8s ease}.reveal.on{opacity:1;transform:none}
 </style>
@@ -637,6 +639,19 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scro
 function setLang(l){document.body.className='lang-'+l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));localStorage.setItem('lang',l)}
 setLang(localStorage.getItem('lang')||'en');
 window.addEventListener('load',()=>document.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('on'),100*i)));
+(function(){
+  function fixHashScroll(){
+    if(!location.hash) return;
+    var el=document.querySelector(location.hash);
+    if(!el) return;
+    var offset=nav?nav.offsetHeight:82;
+    var y=el.getBoundingClientRect().top+window.pageYOffset-offset;
+    window.scrollTo(0,y);
+  }
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fixHashScroll);}else{fixHashScroll();}
+  window.addEventListener('load',fixHashScroll);
+  setTimeout(fixHashScroll,500);
+})();
 </script>
 </body>
 </html>
