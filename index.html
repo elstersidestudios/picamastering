@@ -77,6 +77,15 @@ h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(2.2rem,4
 .service h3{font-family:'Playfair Display',serif;font-weight:500;font-size:2rem;line-height:1.05;margin-bottom:1rem}
 .service-claim{font-family:'Playfair Display',serif;font-size:1.28rem;line-height:1.35;margin-bottom:1rem;color:var(--cream)}
 .service p{color:var(--dim);font-size:.98rem;line-height:1.75;margin-bottom:1.6rem}
+.service ul{list-style:none;padding:0;margin:0 0 1.6rem;flex:1}
+.service li{color:var(--dim);font-size:.92rem;line-height:1.7;padding:.32rem 0;border-bottom:1px solid var(--line2)}
+.service li:last-child{border-bottom:none}
+.service.flagship{position:relative;background:rgba(212,0,0,.045)}
+.service.flagship::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:#D40000}
+.tag-flagship{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#e2534f;margin-bottom:.9rem;display:block}
+.btn.flagship{background:#D40000;border-color:#D40000}
+.btn.flagship:hover{background:#ee1414;border-color:#ee1414}
+
 .service .btn{margin-top:auto;width:max-content}
 .stems{background:var(--ink2)}
 .statement{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.6rem);line-height:1.25;max-width:60rem}
@@ -217,34 +226,68 @@ footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);fon
     <h2 class="de">Der richtige Weg zum fertigen Track.</h2>
     <div class="services-grid">
       <article class="service">
-        <span class="num">01</span>
-        <h3>Mastering</h3>
-        <div class="service-claim en">Where good mixes become finished records.</div>
-        <div class="service-claim de">Wo gute Mixe zu fertigen Songs werden.</div>
-        <p class="en">More focus. More depth. More confidence. The final polish that helps a record sound expensive and ready for release.</p>
-        <p class="de">Mehr Fokus, mehr Tiefe, mehr Sicherheit. Der letzte Schliff, damit dein Track hochwertig klingt und bereit für die Veröffentlichung ist.</p>
-        <a class="btn en" href="#contact">Book Mastering</a>
-        <a class="btn de" href="#contact">Mastering anfragen</a>
-      </article>
-      <article class="service">
-        <span class="num">02</span>
-        <h3>Stem Mastering</h3>
-        <div class="service-claim en">Making the right adjustments.</div>
-        <div class="service-claim de">Die richtigen Anpassungen treffen.</div>
-        <p class="en">More control. Better decisions. Better records. Working from stems gives me more freedom to shape balance, low end, vocals and impact while keeping the perspective of a mastering session.</p>
-        <p class="de">Mehr Kontrolle, bessere Entscheidungen, bessere Ergebnisse. Aus Stems habe ich mehr Freiheit für Balance, Low End, Vocals und Druck, behalte aber die Perspektive einer Mastering-Session.</p>
-        <a class="btn en" href="#contact">Book Stem Mastering</a>
-        <a class="btn de" href="#contact">Stem Mastering anfragen</a>
-      </article>
-      <article class="service">
-        <span class="num">03</span>
         <h3>Mixing</h3>
         <div class="service-claim en">Build the foundation.</div>
         <div class="service-claim de">Das Fundament legen.</div>
-        <p class="en">Making sure the right elements lead and everything else supports them. The mix defines the direction every master depends on.</p>
-        <p class="de">Die wichtigen Elemente nach vorne holen und alles andere so setzen, dass es trägt. Der Mix gibt die Richtung vor, auf der jedes Master aufbaut.</p>
+        <ul class="en">
+          <li>Maximize your song's potential</li>
+          <li>Instrumental &amp; vocal mixing</li>
+          <li>Tailored to electronic and pop</li>
+          <li>Obsessive attention to detail</li>
+          <li>5 business days including one revision round</li>
+        </ul>
+        <ul class="de">
+          <li>Maximize your song's potential</li>
+          <li>Instrumental &amp; vocal mixing</li>
+          <li>Auf elektronische Musik und Pop zugeschnitten</li>
+          <li>Obsessive attention to detail</li>
+          <li>5 Werktage inklusive einer Revisionsrunde</li>
+        </ul>
         <a class="btn en" href="#contact">Book Mixing</a>
         <a class="btn de" href="#contact">Mixing anfragen</a>
+      </article>
+      <article class="service flagship">
+        <span class="tag-flagship">Signature</span>
+        <h3>Stem Mastering</h3>
+        <div class="service-claim en">Making the right adjustments.</div>
+        <div class="service-claim de">Die richtigen Anpassungen treffen.</div>
+        <ul class="en">
+          <li>Submit up to 8 stem groups</li>
+          <li>Targeted decisions per group</li>
+          <li>Extra depth and clarity</li>
+          <li>Enhanced dynamics</li>
+          <li>Improved stereo image</li>
+        </ul>
+        <ul class="de">
+          <li>Bis zu 8 Stem-Gruppen einreichen</li>
+          <li>Gezielte Entscheidungen pro Gruppe</li>
+          <li>Extra Tiefe und Klarheit</li>
+          <li>Erweiterte Dynamik</li>
+          <li>Verbessertes Stereobild</li>
+        </ul>
+        <a class="btn flagship en" href="#contact">Book Stem Mastering</a>
+        <a class="btn flagship de" href="#contact">Stem Mastering anfragen</a>
+      </article>
+      <article class="service">
+        <h3>Mastering</h3>
+        <div class="service-claim en">Where good mixes become finished records.</div>
+        <div class="service-claim de">Wo gute Mixe zu fertigen Songs werden.</div>
+        <ul class="en">
+          <li>Consistent across every song on a release</li>
+          <li>Enhance your mix</li>
+          <li>Translates on every system</li>
+          <li>Loudness that still breathes</li>
+          <li>Ready for streaming</li>
+        </ul>
+        <ul class="de">
+          <li>Konsistent über alle Songs eines Releases</li>
+          <li>Enhance your mix</li>
+          <li>Übersetzt auf jedem System</li>
+          <li>Lautheit, die trotzdem atmet</li>
+          <li>Ready for streaming</li>
+        </ul>
+        <a class="btn en" href="#contact">Book Mastering</a>
+        <a class="btn de" href="#contact">Mastering anfragen</a>
       </article>
     </div>
   </div>
