@@ -121,6 +121,15 @@ input,textarea{width:100%;background:rgba(238,233,227,.045);border:1px solid var
 input:focus,textarea:focus{border-color:rgba(181,102,42,.7)}
 textarea{min-height:96px;resize:vertical}
 .submit{width:100%;background:var(--copper);border:1px solid var(--copper);color:var(--cream);padding:1rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+#faq .service{min-height:auto}
+#faq .service h3{font-size:1.55rem}
+.prep{margin-top:4.5rem;border-left:2px solid #D40000;padding-left:2rem;max-width:880px}
+.prep-title{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.15;margin-bottom:1.8rem}
+.prep-list div{display:grid;grid-template-columns:160px 1fr;gap:1.5rem;padding:.95rem 0;border-bottom:1px solid var(--line2)}
+.prep-list div:last-child{border-bottom:none}
+.prep-list dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper2);padding-top:.25rem}
+.prep-list dd{color:var(--dim);font-size:.98rem;line-height:1.7}
+@media(max-width:900px){.prep{padding-left:1.25rem}.prep-list div{grid-template-columns:1fr;gap:.3rem}}
 footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);font-family:var(--mono);font-size:.7rem;letter-spacing:.08em}
 .footer-row{display:flex;flex-direction:column;gap:0.75rem}
 .footer-links{display:flex;gap:1.4rem;flex-wrap:wrap}
@@ -357,14 +366,59 @@ footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);fon
       </article>
       <article class="service">
         <h3 class="en">What should I send?</h3><h3 class="de">Was soll ich schicken?</h3>
-        <p class="en">For a track check, a private streaming link is enough. After booking you get a short prep guide with exactly the files I need.</p>
-        <p class="de">Für den Track-Check reicht ein privater Streaming-Link. Nach der Buchung bekommst du einen kurzen Prep-Guide mit genau den Dateien, die ich brauche.</p>
+        <p class="en">For a track check, a private streaming link is enough. Once you book, prepare your files as listed under File prep below.</p>
+        <p class="de">Für den Track-Check reicht ein privater Streaming-Link. Nach der Buchung bereitest du die Dateien so vor, wie unten unter Dateien vorbereiten beschrieben.</p>
       </article>
       <article class="service">
         <h3 class="en">How fast is the reply?</h3><h3 class="de">Wie schnell kommt die Antwort?</h3>
         <p class="en">For the free track check, within 48 hours. Mastering and stem mastering take 2 to 3 business days, mixing 5.</p>
         <p class="de">Beim kostenlosen Track-Check innerhalb von 48 Stunden. Mastering und Stem Mastering dauern 2 bis 3 Werktage, Mixing 5.</p>
       </article>
+      <article class="service">
+        <h3 class="en">Limiter on my mix bus?</h3><h3 class="de">Limiter auf der Summe?</h3>
+        <p class="en">If your bus chain shapes the sound, keep it. Send two versions: one with the full chain, one without the final limiter. We pick the better starting point together.</p>
+        <p class="de">Wenn deine Summenkette den Sound prägt, lass sie drauf. Schick zwei Versionen: eine mit der kompletten Kette, eine ohne den finalen Limiter. Wir entscheiden gemeinsam, womit ich starte.</p>
+      </article>
+      <article class="service">
+        <h3 class="en">What does a revision cover?</h3><h3 class="de">Was umfasst eine Revision?</h3>
+        <p class="en">One revision round is included with every service. If a new mix arrives after the master is done, that is a new job, priced by the work it takes.</p>
+        <p class="de">Jede Leistung enthält eine Revisionsrunde. Kommt nach dem fertigen Master ein neuer Mix, ist das ein neuer Auftrag und wird nach Aufwand berechnet.</p>
+      </article>
+      <article class="service">
+        <h3 class="en">Club, streaming or vinyl?</h3><h3 class="de">Club, Streaming oder Vinyl?</h3>
+        <p class="en">Tell me where your record will live. A club system, a playlist and a lathe ask for different decisions, and I master for the place it actually gets played.</p>
+        <p class="de">Sag mir, wo dein Track laufen soll. Clubanlage, Playlist und Vinyl verlangen unterschiedliche Entscheidungen, und ich mastere für den Ort, an dem er wirklich gespielt wird.</p>
+      </article>
+      <article class="service">
+        <h3 class="en">How do I credit it?</h3><h3 class="de">Wie nenne ich das in den Credits?</h3>
+        <p class="en">Thank you. Use "Mastered by Pica Mastering" (or "Mixed by" for mixing) and tag @picamastering when you post the release.</p>
+        <p class="de">Danke dir. Schreib "Mastered by Pica Mastering" (beim Mixing "Mixed by") und markiere @picamastering, wenn du den Release postest.</p>
+      </article>
+    </div>
+
+    <div class="prep" id="prep">
+      <span class="section-marker en">File prep</span>
+      <span class="section-marker de">Dateien vorbereiten</span>
+      <h3 class="prep-title en">Clean files, better decisions.</h3>
+      <h3 class="prep-title de">Saubere Dateien, bessere Entscheidungen.</h3>
+      <dl class="prep-list en">
+        <div><dt>Format</dt><dd>24-bit or 32-bit float, WAV or AIFF.</dd></div>
+        <div><dt>Sample rate</dt><dd>Same as your project. A 44.1 kHz session bounced to 96 kHz gains nothing.</dd></div>
+        <div><dt>Level</dt><dd>Peaks around -3 dBFS as a guide. Anywhere below 0 dBFS is fine.</dd></div>
+        <div><dt>Stems</dt><dd>Up to 8 groups, all starting at the same point. Played together at unity, they should sound exactly like your mix.</dd></div>
+        <div><dt>Naming</dt><dd>Track order first: 01-Title-Mix01.wav, 02-Title-Mix01.wav.</dd></div>
+        <div><dt>Context</dt><dd>One reference track, a few words on what you are after, and where it will be released.</dd></div>
+        <div><dt>Transfer</dt><dd>WeTransfer, Dropbox or Swisstransfer.</dd></div>
+      </dl>
+      <dl class="prep-list de">
+        <div><dt>Format</dt><dd>24 bit oder 32 bit float, WAV oder AIFF.</dd></div>
+        <div><dt>Samplerate</dt><dd>Wie in deinem Projekt. Eine 44,1-kHz-Session auf 96 kHz zu bouncen bringt nichts.</dd></div>
+        <div><dt>Pegel</dt><dd>Peaks um -3 dBFS als Richtwert. Alles unter 0 dBFS passt.</dd></div>
+        <div><dt>Stems</dt><dd>Bis zu 8 Gruppen, alle mit demselben Startpunkt. Zusammen auf 0 dB abgespielt, klingen sie exakt wie dein Mix.</dd></div>
+        <div><dt>Benennung</dt><dd>Reihenfolge zuerst: 01-Titel-Mix01.wav, 02-Titel-Mix01.wav.</dd></div>
+        <div><dt>Kontext</dt><dd>Ein Referenztrack, ein paar Worte dazu, wo du hinwillst, und wo der Track erscheint.</dd></div>
+        <div><dt>Übertragung</dt><dd>WeTransfer, Dropbox oder Swisstransfer.</dd></div>
+      </dl>
     </div>
   </div>
 </section>
