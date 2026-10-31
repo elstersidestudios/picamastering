@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Pica Mastering · Stem Mastering · Mixing · Mastering</title>
 <meta name="description" content="Mixing, stem mastering and mastering for electronic and pop records. Your track is close. Let's get it across the finish line.">
 <meta property="og:title" content="Pica Mastering · Stem Mastering · Mixing · Mastering">
@@ -14,227 +14,266 @@
 <meta property="og:url" content="https://picamastering.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f7f5">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ink:#070b10;
-  --ink2:#0d131b;
-  --cream:#eee9e3;
-  --dim:rgba(238,233,227,.66);
-  --faint:rgba(238,233,227,.40);
-  --line:rgba(238,233,227,.12);
-  --line2:rgba(238,233,227,.07);
-  --copper:#b5662a;
-  --copper2:#d17a37;
-  --mono:'JetBrains Mono', monospace;
+/* Layout: draft B. A quiet, light page like the room's white ceiling cloud; Merrick anthracite is the only colour, used for type, lines and one closing surface. Three plain buttons up top, everything else structured and calm. */
+:root{
+  --cloud:#f7f7f5;        /* white ceiling fabric */
+  --band:#ecedeb;         /* light grey band */
+  --merrick:#47494b;      /* Camira Cara Merrick, anthracite */
+  --merrick-2:#36383a;    /* closing surface */
+  --dim:rgba(71,73,75,.72);
+  --faint:rgba(71,73,75,.50);
+  --line:rgba(71,73,75,.16);
+  --line-2:rgba(71,73,75,.09);
+  --on-dark:#f2f2f0;
+  --on-dark-dim:rgba(242,242,240,.70);
+  --on-dark-line:rgba(242,242,240,.16);
+  --display:"Libre Caslon Display","Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --serif:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --panel:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  color-scheme:light;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:auto}
-body{background:var(--ink);color:var(--cream);font-family:Inter,system-ui,sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+[hidden]{display:none!important}
+html{background:var(--cloud)}
+body{background:var(--cloud);color:var(--merrick);font-family:var(--serif);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:rgba(247,247,245,.86)}
 a{color:inherit}
+:focus-visible{outline:1px solid var(--merrick);outline-offset:3px}
 .de{display:none} body.lang-de .de{display:block} body.lang-de .en{display:none} body.lang-de span.de,body.lang-de a.de{display:inline} span.de,a.de{display:none}
-.container{max-width:1180px;margin:0 auto;padding:0 2rem}
-nav{position:fixed;inset:0 0 auto 0;height:92px;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 max(2rem,calc((100vw - 1180px)/2 + 2rem));transition:background .25s,border .25s;border-bottom:1px solid transparent}
-nav.scrolled{background:rgba(7,11,16,.92);backdrop-filter:blur(16px);border-bottom-color:var(--line2)}
-.logo-link{display:flex;align-items:center;text-decoration:none;margin-top:8px}
-.pica-logo-svg{height:47px;width:auto;display:block}
-.nav-center{display:flex;gap:30px;align-items:center}
-.nav-center a{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}
-.nav-center a:hover{color:var(--cream)}
-.nav-right{display:flex;align-items:center;gap:16px}
-.nav-cta{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--copper);padding:.75rem 1rem;text-decoration:none;color:var(--cream);border:1px solid var(--copper);transition:.2s}
-.nav-cta:hover{background:var(--copper2);border-color:var(--copper2)}
-.lang-toggle{display:flex;border:1px solid var(--line)}
-.lang-btn{background:transparent;border:0;color:var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:6px 10px;cursor:pointer}
-.lang-btn.active{color:var(--cream);background:rgba(238,233,227,.08)}
-.hero{min-height:94vh;position:relative;display:flex;align-items:center;overflow:hidden;padding:10rem 0 6rem}
-.hero-bg{position:absolute;inset:0;background:url('studio-hero.jpg') 50% 64%/cover no-repeat;filter:saturate(.95) contrast(1.04) brightness(.92);transform:scale(1.02)}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,16,.84) 0%,rgba(7,11,16,.55) 40%,rgba(7,11,16,.32) 100%),linear-gradient(0deg,rgba(7,11,16,.78) 0%,rgba(7,11,16,.10) 42%,rgba(7,11,16,.50) 100%)}
-.hero-inner{position:relative;z-index:2;max-width:760px}
-.kicker,.section-marker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--copper2);margin-bottom:1.5rem;display:block}
-h1{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(3.1rem,7vw,6.4rem);line-height:1.02;letter-spacing:-.035em;margin-bottom:1.6rem}
-h1 em{font-style:italic;color:var(--copper2);font-weight:400}
-.hero-sub{font-family:'Playfair Display',serif;font-size:clamp(1.25rem,2.2vw,1.75rem);line-height:1.45;color:var(--cream);max-width:34ch;margin-bottom:2.2rem}
-.hero-note{font-size:1rem;color:var(--dim);max-width:42rem;margin-bottom:2.4rem}
-.btn-row{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;padding:1rem 1.35rem;border:1px solid var(--line);color:var(--cream);transition:.2s;min-height:48px}
-.btn.primary{background:var(--copper);border-color:var(--copper)}
-.btn:hover{transform:translateY(-1px);border-color:var(--copper);color:var(--cream)}
-.btn.primary:hover{background:var(--copper2);border-color:var(--copper2)}
-section{padding:7rem 0;border-top:1px solid var(--line2)}
-.split{display:grid;grid-template-columns:1.05fr .95fr;gap:5rem;align-items:start}
-.problem-lines{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,2.2rem);line-height:1.45;max-width:44rem}
-.problem-lines span{display:block;margin-bottom:.4rem}
-.muted{color:var(--dim)}
-.punch{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.25;border-left:2px solid var(--copper);padding-left:1.5rem;margin-top:2.5rem;max-width:34rem}
-.track-check{background:var(--ink2)}
-.check-box{max-width:760px;border-left:2px solid var(--copper);padding-left:2rem}
-h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(2.2rem,4.5vw,4rem);line-height:1.08;letter-spacing:-.025em;margin-bottom:1.25rem}
-.lead{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2vw,1.5rem);line-height:1.6;color:var(--cream);max-width:48rem}
-.body{font-size:1rem;line-height:1.85;color:var(--dim);max-width:46rem;margin-top:1.2rem}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:2rem}
-.service{padding:2.2rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;min-height:370px;background:rgba(238,233,227,.015)}
-.num{font-family:var(--mono);font-size:.72rem;color:var(--copper2);letter-spacing:.12em;margin-bottom:1.4rem}
-.service h3{font-family:'Playfair Display',serif;font-weight:500;font-size:2rem;line-height:1.05;margin-bottom:1rem}
-.service-claim{font-family:'Playfair Display',serif;font-size:1.28rem;line-height:1.35;margin-bottom:1rem;color:var(--cream)}
-.service p{color:var(--dim);font-size:.98rem;line-height:1.75;margin-bottom:1.6rem}
-.service ul{list-style:none;padding:0;margin:0 0 1.6rem;flex:1}
-.service li{color:var(--dim);font-size:.92rem;line-height:1.7;padding:.32rem 0;border-bottom:1px solid var(--line2)}
-.service li:last-child{border-bottom:none}
-.service.flagship{position:relative;background:rgba(212,0,0,.045)}
-.service.flagship::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:#D40000}
-.tag-flagship{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#e2534f;margin-bottom:.9rem;display:block}
-.btn.flagship{background:#B8141A;border-color:#B8141A}
-.btn.flagship:hover{background:#C81E24;border-color:#C81E24}
+body.lang-de a.choice.de{display:flex}
+body.lang-de a.btn.de{display:inline-flex}
 
-.service .btn{margin-top:auto;width:max-content}
-.price{font-family:'Playfair Display',serif;font-size:2.4rem;line-height:1;color:var(--cream);margin:.2rem 0 1.2rem;letter-spacing:-.02em}
-.price-from{font-family:Inter,sans-serif;font-size:.85rem;color:var(--dim);margin-right:.4rem;letter-spacing:0}
-.price-note{color:var(--faint);font-size:.88rem;line-height:1.7;margin-top:1.4rem;max-width:46rem}
-.stems{background:var(--ink2)}
-.statement{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.6rem);line-height:1.25;max-width:60rem}
-.statement small{display:block;font-family:Inter,sans-serif;font-size:1rem;line-height:1.8;color:var(--dim);margin-top:1.6rem;max-width:48rem}
-.room-visual{margin-top:3rem;min-height:440px;background:url('studio-hero.jpg') center 38%/cover no-repeat;position:relative;filter:saturate(.86) contrast(1.05) brightness(.82)}
-.room-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,11,16,.52),rgba(7,11,16,.10))}
-.room-spec{display:flex;flex-wrap:wrap;gap:1.4rem;margin-top:2.6rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.room-spec span{border-bottom:1px solid var(--line);padding-bottom:.45rem}
-.room-media{display:flex;align-items:center;justify-content:center}
-.room-img{display:block;width:100%;max-width:330px;height:auto}
+.container{max-width:1120px;margin:0 auto;padding-left:max(2rem,env(safe-area-inset-left,0px));padding-right:max(2rem,env(safe-area-inset-right,0px))}
+.narrow{max-width:46rem}
+
+/* Glass bar: frosted white over the page */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(247,247,245,.72);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line-2)}
+nav .container{height:72px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.logo-link{display:flex;align-items:center;text-decoration:none}
+.pica-logo-svg{height:26px;width:auto;display:block}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-links{display:flex;gap:1.8rem}
+.nav-links a{font-family:var(--panel);font-size:.9rem;color:var(--dim);text-decoration:none}
+.nav-links a:hover{color:var(--merrick)}
+.lang-toggle{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.lang-btn{background:transparent;border:0;color:var(--faint);font-family:var(--panel);font-size:.75rem;font-weight:500;padding:5px 9px;cursor:pointer}
+.lang-btn.active{color:var(--cloud);background:var(--merrick)}
+
+/* Hero: the room photo under the bar, headline on it */
+.hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(460px,58vw,680px);padding-block:5rem 3.6rem;overflow:hidden;color:var(--on-dark)}
+.hero-bg{position:absolute;inset:0;background:url('studio-hero.jpg') 50% 60%/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,21,23,.62) 0%,rgba(20,21,23,.3) 42%,rgba(20,21,23,0) 70%),linear-gradient(0deg,rgba(20,21,23,.45) 0%,rgba(20,21,23,0) 45%)}
+.hero-inner{position:relative;z-index:1;width:100%}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.1;letter-spacing:-.005em;max-width:28ch;margin-bottom:1rem}
+.hero-sub{font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.6;color:rgba(242,242,240,.86);max-width:36rem}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hbtn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 1.3rem;font-family:var(--panel);font-size:.95rem;font-weight:500;text-decoration:none;border-radius:2px;transition:background .2s,border-color .2s}
+.hbtn.solid{background:var(--on-dark);color:var(--merrick);border:1px solid var(--on-dark)}
+.hbtn.solid:hover{background:#fff}
+.hbtn.glass{color:var(--on-dark);background:rgba(242,242,240,.10);border:1px solid rgba(242,242,240,.28);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.hbtn.glass:hover{background:rgba(242,242,240,.18)}
+body.lang-de a.hbtn.de{display:inline-flex}
+.intro-sub{font-family:var(--panel);font-size:.98rem;color:var(--dim);max-width:40rem}
+
+/* Sections */
+section{padding-block:6rem}
+.rule{border-top:1px solid var(--line)}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(1.65rem,2.8vw,2.3rem);line-height:1.15;margin-bottom:1rem;text-wrap:balance}
+.label{display:block;font-family:var(--panel);font-size:.85rem;font-weight:500;color:var(--faint);margin-bottom:.9rem}
+.lead{font-size:clamp(1.08rem,1.5vw,1.22rem);line-height:1.65;max-width:42rem}
+.body{color:var(--dim);max-width:42rem;margin-top:1rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+.split>*{min-width:0}
+
+/* Problem and solution: one panel, white half and Merrick half, same language as the service tiles */
+#problem{padding-block:1rem 5rem}
+.ps{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line-2);border-radius:2px;overflow:hidden}
+.ps-half{padding:2.6rem 2.6rem 2.8rem;min-width:0}
+.ps-problem{background:#fff}
+.ps-solution{background:var(--merrick);color:var(--on-dark)}
+.ps-label{display:block;font-family:var(--panel);font-size:.85rem;font-weight:500;color:var(--faint);margin-bottom:1.3rem}
+.ps-solution .ps-label{color:var(--on-dark-dim)}
+.problem-lines{font-size:clamp(1.12rem,1.6vw,1.32rem);line-height:1.55}
+.problem-lines span{display:block;margin-bottom:.5rem}
+.punch{font-family:var(--display);font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.22;max-width:22ch;text-wrap:balance}
+.ps-text{margin-top:1.3rem;color:var(--on-dark-dim);max-width:30rem}
+body.lang-de .ps-label.de{display:block}
+
+.band{background:var(--band)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 1.3rem;font-family:var(--panel);font-size:.95rem;font-weight:500;text-decoration:none;border-radius:2px;border:1px solid var(--merrick);background:var(--merrick);color:var(--on-dark);margin-top:1.8rem;transition:background .2s}
+.btn:hover{background:var(--merrick-2)}
+.btn.ghost{background:transparent;color:var(--merrick);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--merrick)}
+
+/* Services as tiles, right after the hero */
+.services{padding-block:4.5rem 5rem}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}
+.service{display:flex;flex-direction:column;padding:1.9rem 1.8rem 1.9rem;min-width:0;background:#fff;border:1px solid var(--line-2);border-radius:2px;scroll-margin-top:96px}
+.service h3{font-family:var(--display);font-weight:400;font-size:1.75rem;line-height:1.1;margin-bottom:.35rem}
+.service .choice-tag{display:block;height:1.3rem;line-height:1.3rem;margin-bottom:.4rem;font-family:var(--panel);font-size:.8rem;color:var(--faint)}
+.service-claim{font-style:italic;color:var(--dim);margin-bottom:1rem}
+.price{font-family:var(--panel);font-size:1.1rem;font-weight:500;margin-bottom:1rem;font-variant-numeric:tabular-nums}
+.price span{font-weight:400;color:var(--faint);margin-right:.3rem}
+.service p{color:var(--dim);font-size:.98rem;line-height:1.75;margin-bottom:1.3rem}
+.service ul{list-style:none;border-top:1px solid var(--line-2);margin-bottom:1.6rem;flex:1}
+.service li{font-family:var(--panel);font-size:.88rem;line-height:1.55;color:var(--dim);padding:.55rem 0;border-bottom:1px solid var(--line-2)}
+.service .btn{margin-top:auto;align-self:flex-start}
+.service.flagship{background:var(--merrick);border-color:var(--merrick);color:var(--on-dark)}
+.service.flagship .choice-tag,.service.flagship .price span{color:var(--on-dark-dim)}
+.service.flagship .service-claim,.service.flagship p,.service.flagship li{color:var(--on-dark-dim)}
+.service.flagship ul,.service.flagship li{border-color:var(--on-dark-line)}
+.btn.light{background:var(--on-dark);color:var(--merrick);border-color:var(--on-dark)}
+.btn.light:hover{background:#fff}
+.price-note{font-family:var(--panel);font-size:.86rem;color:var(--faint);margin-top:1.6rem}
+
+.statement{font-family:var(--display);font-size:clamp(1.4rem,2.4vw,1.95rem);line-height:1.3;max-width:40rem;text-wrap:balance}
+.statement small{display:block;font-family:var(--serif);font-size:1rem;line-height:1.75;color:var(--dim);margin-top:1.2rem}
+
+/* Room: a dark stage in the image's own black, so the Kii stands free */
+.stage{background:#111015;color:var(--on-dark)}
+.stage .lead{color:var(--on-dark)}
+.room{display:grid;grid-template-columns:1fr 300px;gap:4.5rem;align-items:center}
+.room>*{min-width:0}
+.room-img{display:block;width:100%;max-width:300px;height:auto;justify-self:end;-webkit-mask-image:radial-gradient(ellipse 72% 78% at 50% 48%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 72% 78% at 50% 48%,#000 62%,transparent 100%)}
+#room{padding-bottom:0}
 @keyframes gmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.gear-ticker{overflow:hidden;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);background:var(--ink2)}
-.gear-track{display:inline-flex;align-items:center;white-space:nowrap;animation:gmarq 45s linear infinite}
-.gear-track span{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);padding:18px 22px}
-.gear-track .sep{color:var(--copper2);padding:18px 0}
-#room .gear-ticker{margin-top:4.5rem}
-#room{background:#111015}
-#room .container{align-items:start;grid-template-columns:1fr minmax(300px,360px);gap:5rem}
-@media(max-width:900px){#room .container{grid-template-columns:1fr;gap:2.5rem}.room-media{margin-top:.5rem}.room-img{max-width:300px}}
-.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:2.4rem}
-.trust-item{background:var(--ink);padding:2rem}
-.trust-item strong{display:block;font-family:'Playfair Display',serif;font-size:2rem;font-weight:500;margin-bottom:.6rem}
-.trust-item span{color:var(--dim)}
-.cta{background:radial-gradient(ellipse at 50% 50%,rgba(181,102,42,.12),transparent 60%),var(--ink)}
-.form{margin-top:2rem;max-width:720px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.field{margin-bottom:1rem}
-label{display:block;font-family:var(--mono);font-size:.66rem;color:var(--faint);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.45rem}
-input,textarea{width:100%;background:rgba(238,233,227,.045);border:1px solid var(--line);color:var(--cream);padding:.95rem 1rem;font:300 .95rem Inter,sans-serif;outline:0}
-input:focus,textarea:focus{border-color:rgba(181,102,42,.7)}
-textarea{min-height:96px;resize:vertical}
-.submit{width:100%;background:var(--copper);border:1px solid var(--copper);color:var(--cream);padding:1rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
-.faq-list{margin-top:2rem;border-top:1px solid var(--line);max-width:880px}
+.gear-ticker{overflow:hidden;margin-top:5rem;border-top:1px solid rgba(242,242,240,.08);background:#16151a}
+.gear-track{display:inline-flex;align-items:center;white-space:nowrap;animation:gmarq 60s linear infinite}
+.gear-track span{font-family:var(--panel);font-size:.85rem;color:rgba(242,242,240,.55);padding:1.1rem 1.3rem}
+.gear-track .sep{padding:1.1rem 0;opacity:.5}
+@media(prefers-reduced-motion:reduce){.gear-track{animation:none}}
+#about.rule{border-top:0}
+
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;border-top:1px solid var(--line)}
+.trust-item{padding-top:1.1rem;min-width:0}
+.trust-item strong{display:block;font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1}
+.trust-item span{font-family:var(--panel);font-size:.85rem;color:var(--faint)}
+
+/* FAQ + file prep */
+.faq-list{margin-top:1.6rem;border-top:1px solid var(--line);max-width:46rem}
 .faq-item{border-bottom:1px solid var(--line)}
-.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.35rem 0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.2rem,2vw,1.5rem);line-height:1.3;color:var(--cream)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.05rem 0;font-size:1.1rem;line-height:1.4}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:"+";font-family:var(--mono);font-size:1.1rem;color:var(--copper2);flex-shrink:0;transition:transform .2s}
+.faq-item summary::after{content:"+";font-family:var(--panel);font-size:1.2rem;color:var(--faint);flex:none;transition:transform .2s}
 .faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-item summary:hover{color:var(--copper2)}
-.faq-item summary:focus-visible{outline:1px solid var(--copper2);outline-offset:4px}
-.faq-item p{color:var(--dim);font-size:1rem;line-height:1.8;max-width:46rem;padding:0 0 1.5rem}
-.prep{margin-top:4.5rem;max-width:880px}
-.prep-title{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.15;margin-bottom:1.8rem}
-.prep-list div{display:grid;grid-template-columns:160px 1fr;gap:1.5rem;padding:.95rem 0;border-bottom:1px solid var(--line2)}
-.prep-list div:last-child{border-bottom:none}
-.prep-list dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--copper2);padding-top:.25rem}
-.prep-list dd{color:var(--dim);font-size:.98rem;line-height:1.7}
-@media(max-width:900px){.prep-list div{grid-template-columns:1fr;gap:.3rem}}
-footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);font-family:var(--mono);font-size:.7rem;letter-spacing:.08em}
-.footer-row{display:flex;flex-direction:column;gap:0.75rem}
-.footer-links{display:flex;gap:1.4rem;flex-wrap:wrap}
-.footer-links a{text-decoration:none;color:var(--faint)}
-#hero,#problem,#track-check,#services,#stems,#room,#about,#faq,#contact{scroll-margin-top:82px}
-@media(max-width:900px){#hero,#problem,#track-check,#services,#stems,#room,#about,#faq,#contact{scroll-margin-top:70px}}
-@media(max-width:900px){.nav-center{display:none}.nav-cta{display:none}.pica-logo-svg{height:32px}nav{height:70px;padding:0 1.25rem}.container{padding:0 1.25rem}.hero{min-height:auto;padding:8rem 0 5rem}.split,.services-grid,.trust-grid,.form-row{grid-template-columns:1fr}section{padding:5rem 0}.service{min-height:auto}.room-visual{min-height:300px}.hero-note{display:none}h1{font-size:clamp(2.4rem,10vw,6.4rem)}}
-.reveal{opacity:0;transform:translateY(18px);transition:.8s ease}.reveal.on{opacity:1;transform:none}
+.faq-item p{color:var(--dim);max-width:42rem;padding-bottom:1.2rem}
+.prep{margin-top:4.5rem;max-width:46rem}
+.prep-title{font-family:var(--display);font-weight:400;font-size:clamp(1.45rem,2.4vw,1.9rem);line-height:1.2;margin-bottom:1.4rem}
+.prep-list{border-top:1px solid var(--line)}
+.prep-list div{display:grid;grid-template-columns:140px 1fr;gap:1.4rem;padding:.8rem 0;border-bottom:1px solid var(--line-2)}
+.prep-list dt{font-family:var(--panel);font-size:.88rem;font-weight:500;padding-top:.15rem}
+.prep-list dd{color:var(--dim);font-size:.98rem;min-width:0}
+
+/* Closing surface in Merrick */
+.cta{background:var(--merrick);color:var(--on-dark)}
+.cta .label{color:var(--on-dark-dim)}
+.cta .lead{color:var(--on-dark)}
+.form{margin-top:2rem;max-width:44rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{margin-bottom:1rem;min-width:0}
+.field label{display:block;font-family:var(--panel);font-size:.85rem;font-weight:500;color:var(--on-dark-dim);margin-bottom:.4rem}
+input,textarea{width:100%;background:rgba(242,242,240,.06);border:1px solid var(--on-dark-line);border-radius:2px;color:var(--on-dark);padding:.85rem 1rem;font:400 1rem var(--panel);outline:0}
+input::placeholder,textarea::placeholder{color:rgba(242,242,240,.42)}
+input:focus,textarea:focus{border-color:var(--on-dark-dim)}
+textarea{min-height:104px;resize:vertical}
+.submit{width:100%;min-height:48px;cursor:pointer;font-family:var(--panel);font-size:.98rem;font-weight:500;background:var(--on-dark);color:var(--merrick);border:0;border-radius:2px;margin-top:.3rem}
+.submit:hover{background:#ffffff}
+.form-note{font-family:var(--panel);font-size:.88rem;color:var(--on-dark-dim);margin-top:.9rem}
+.mail-line{font-family:var(--panel);font-size:.95rem;color:var(--on-dark-dim);margin-top:1.6rem}
+.mail-line a{color:var(--on-dark);text-underline-offset:3px}
+
+/* Service choice in the form */
+.svc{border:0;margin:0 0 1.3rem;padding:0;min-width:0}
+.svc legend{font-family:var(--panel);font-size:.85rem;font-weight:500;color:var(--on-dark-dim);margin-bottom:.6rem;padding:0}
+.svc-opts{display:flex;flex-wrap:wrap;gap:.5rem}
+.svc-opt{position:relative}
+.svc-opt input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.chip{display:inline-flex;align-items:center;min-height:42px;padding:0 1rem;border:1px solid var(--on-dark-line);border-radius:2px;font-family:var(--panel);font-size:.92rem;color:var(--on-dark);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:var(--on-dark-dim)}
+.svc-opt input:checked+.chip{background:var(--on-dark);color:var(--merrick);border-color:var(--on-dark)}
+.svc-opt input:focus-visible+.chip{outline:1px solid var(--on-dark);outline-offset:2px}
+footer{background:var(--merrick-2);color:rgba(242,242,240,.55);font-family:var(--panel);font-size:.85rem;padding-block:2.2rem}
+.footer-row{display:flex;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap}
+.footer-links{display:flex;gap:1.3rem;flex-wrap:wrap}
+.footer-links a{text-decoration:none}
+.footer-links a:hover{color:var(--on-dark)}
+
+section[id]{scroll-margin-top:80px}
+
+@media(max-width:900px){
+  .container{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  .nav-links{display:none}
+  nav .container{height:62px}
+  .pica-logo-svg{height:22px}
+  .hero{min-height:520px;padding-block:4rem 2.6rem}
+  .hero-bg{background-position:60% 55%}
+  .hero::after{background:linear-gradient(0deg,rgba(20,21,23,.78) 0%,rgba(20,21,23,.4) 55%,rgba(20,21,23,0) 100%)}
+  .gear-ticker{margin-top:3rem}
+  .services{padding-block:3.2rem 3.8rem}
+  section{padding-block:4.2rem}
+  .split,.room,.form-row{grid-template-columns:1fr}
+  .ps{grid-template-columns:1fr}
+  .ps-half{padding:1.8rem 1.3rem 2rem}
+  #problem{padding-block:0 3.8rem}
+  .split,.room{gap:2rem}
+  .room-img{justify-self:center;max-width:220px}
+  .services-grid{grid-template-columns:1fr}
+  .service{padding:1.6rem 1.3rem}
+  .prep-list div{grid-template-columns:1fr;gap:.2rem}
+  .trust-grid{gap:.6rem}
+}
 </style>
 </head>
 <body class="lang-en">
+
 <nav id="nav">
-  <a class="logo-link" href="#hero" aria-label="Pica Mastering home"><img src="pica-logo.svg" class="pica-logo-svg" alt="Pica Mastering"></a>
-  <div class="nav-center">
-    <a href="#services">Services</a>
-    <a href="#room">The Room</a>
-    <a href="#about">About</a>
-    <a href="#faq">FAQ</a>
-  </div>
-  <div class="nav-right">
-    <div class="lang-toggle"><button class="lang-btn active" onclick="setLang('en')">EN</button><button class="lang-btn" onclick="setLang('de')">DE</button></div>
+  <div class="container">
+    <a class="logo-link" href="#top" aria-label="Pica Mastering home"><img src="pica-logo-merrick.svg" class="pica-logo-svg" alt="Pica Mastering"></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#room">The Room</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="lang-toggle"><button class="lang-btn active" type="button" data-lang="en">EN</button><button class="lang-btn" type="button" data-lang="de">DE</button></div>
+    </div>
   </div>
 </nav>
 
-<section class="hero" id="hero">
+<header class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="container hero-inner">
-    <span class="kicker reveal en">Mastering · Stem Mastering · Mixing</span>
-    <span class="kicker reveal de">Mastering · Stem Mastering · Mixing</span>
-    <h1 class="reveal">Your track is close.<br>Let's get it <em>across the finish line.</em></h1>
-    <p class="hero-sub reveal en">Your track has to work everywhere, from an iPhone to the mighty Funktion-One.</p>
-    <p class="hero-sub reveal de">Dein Track muss überall funktionieren, vom iPhone bis zur mächtigen Funktion-One.</p>
-    <p class="hero-note reveal en">Mixing, stem mastering and mastering for electronic and pop records.</p>
-    <p class="hero-note reveal de">Mixing, Stem Mastering und Mastering für elektronische und Pop-Produktionen.</p>
-    <div class="btn-row reveal">
-      <a class="btn primary en" href="#contact">Free test master</a>
-      <a class="btn primary de" href="#contact">Kostenloser Testmaster</a>
-      <a class="btn en" href="#services">Services</a>
-      <a class="btn de" href="#services">Services</a>
+    <h1>Your track is close.<br>Let's get it across the finish&nbsp;line.</h1>
+    <p class="hero-sub en">Your track has to work everywhere, from an iPhone to the mighty Funktion-One.</p>
+    <p class="hero-sub de">Dein Track muss überall funktionieren, vom iPhone bis zur Funktion-One.</p>
+    <div class="hero-btns">
+      <a class="hbtn solid en" href="#contact" data-service="test">Free test master</a>
+      <a class="hbtn solid de" href="#contact" data-service="test">Kostenloses Testmaster</a>
+      <a class="hbtn glass" href="#services">Services</a>
     </div>
   </div>
-</section>
+</header>
 
-<section id="problem">
-  <div class="container split">
-    <div>
-      <span class="section-marker">The Problem</span>
-      <div class="problem-lines en">
-        <span>On a club system, the low end almost blows the speakers.</span>
-        <span>The hook loses its impact.</span>
-        <span>Details like these determine whether a track works outside your studio.</span>
-      </div>
-      <div class="problem-lines de">
-        <span>Im Club sprengt das Low End fast die Boxen.</span>
-        <span>Die Hook verliert ihre Wirkung.</span>
-        <span>Genau solche Details entscheiden, ob ein Track auch außerhalb deines Studios funktioniert.</span>
-      </div>
-    </div>
-    <div>
-      <p class="punch en">The last ten percent is not louder. It is better decisions.</p>
-      <p class="punch de">Die letzten zehn Prozent sind nicht lauter. Es sind die besseren Entscheidungen.</p>
-    </div>
-  </div>
-</section>
-
-<section class="track-check" id="track-check">
+<section id="services" class="services">
   <div class="container">
-    <div class="check-box">
-      <span class="section-marker en">Free test master</span>
-      <span class="section-marker de">Kostenloser Testmaster</span>
-      <h2 class="en">Hear what’s possible.</h2>
-      <h2 class="de">Hör, was möglich ist.</h2>
-      <p class="lead en">Send me your track. I’ll send you a 30 second test master and my feedback. You decide whether we work together.</p>
-      <p class="lead de">Schick mir deinen Track. Ich schicke dir ein 30-sekündiges Testmaster und mein Feedback dazu. Du entscheidest, ob wir zusammenarbeiten.</p>
-      <p class="body en">A mastered 30 second excerpt from your track, free of charge. Reply within 48 hours.</p>
-      <p class="body de">Ein bearbeiteter Ausschnitt deines Tracks, 30 Sekunden lang und kostenlos. Antwort innerhalb von 48 Stunden.</p>
-      <div class="btn-row" style="margin-top:2rem">
-        <a class="btn primary en" href="#contact">Request a test master</a>
-        <a class="btn primary de" href="#contact">Testmaster anfragen</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <span class="section-marker">Services</span>
     <h2 class="en">Choose the right way to finish the record.</h2>
     <h2 class="de">Der richtige Weg zum fertigen Track.</h2>
+    <p class="intro-sub en">Mixing, stem mastering and mastering for electronic and pop records.</p>
+    <p class="intro-sub de">Mixing, Stem Mastering und Mastering für elektronische und Pop-Produktionen.</p>
     <div class="services-grid">
-      <article class="service">
+      <article class="service" id="mixing">
+        <span class="choice-tag"></span>
         <h3>Mixing</h3>
         <div class="service-claim en">Build the foundation.</div>
         <div class="service-claim de">Das Fundament legen.</div>
-        <div class="price"><span class="price-from en">from</span><span class="price-from de">ab</span> 350&nbsp;€</div>
+        <div class="price"><span class="en">from</span><span class="de">ab</span>350&nbsp;€</div>
         <p class="en">I balance the track, bring the right elements to the front and work out the key elements that carry the song. You get a mix that is ready for mastering.</p>
         <p class="de">Ich balanciere den Track, hole die richtigen Elemente nach vorne und arbeite die Key Elements heraus, die den Song tragen. Du bekommst einen Mix, der bereit fürs Mastering ist.</p>
         <ul class="en">
@@ -251,11 +290,11 @@ footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);fon
           <li>Endpreis nach Spurenanzahl und Vorbereitung, vorab verbindlich bestätigt</li>
           <li>5 Werktage, eine Revisionsrunde inklusive</li>
         </ul>
-        <a class="btn en" href="#contact">Book Mixing</a>
-        <a class="btn de" href="#contact">Mixing anfragen</a>
+        <a class="btn ghost en" href="#contact" data-service="mixing">Book Mixing</a>
+        <a class="btn ghost de" href="#contact" data-service="mixing">Mixing anfragen</a>
       </article>
-      <article class="service flagship">
-        <span class="tag-flagship">Signature</span>
+      <article class="service flagship" id="stem-mastering">
+        <span class="choice-tag">Signature</span>
         <h3>Stem Mastering</h3>
         <div class="service-claim en">Fix exactly what holds it back.</div>
         <div class="service-claim de">Gezielt eingreifen, wo es hakt.</div>
@@ -274,10 +313,11 @@ footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);fon
           <li>Streaming-Master als 24-bit WAV</li>
           <li>2 bis 3 Werktage, eine Revisionsrunde inklusive</li>
         </ul>
-        <a class="btn flagship en" href="#contact">Book Stem Mastering</a>
-        <a class="btn flagship de" href="#contact">Stem Mastering anfragen</a>
+        <a class="btn light en" href="#contact" data-service="stem">Book Stem Mastering</a>
+        <a class="btn light de" href="#contact" data-service="stem">Stem Mastering anfragen</a>
       </article>
-      <article class="service">
+      <article class="service" id="mastering">
+        <span class="choice-tag"></span>
         <h3>Mastering</h3>
         <div class="service-claim en">Where good mixes become finished records.</div>
         <div class="service-claim de">Aus einem guten Mix wird ein fertiger Song.</div>
@@ -296,49 +336,81 @@ footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);fon
           <li>Instrumental- und Clean-Version auf Wunsch</li>
           <li>2 bis 3 Werktage, eine Revisionsrunde inklusive</li>
         </ul>
-        <a class="btn en" href="#contact">Book Mastering</a>
-        <a class="btn de" href="#contact">Mastering anfragen</a>
+        <a class="btn ghost en" href="#contact" data-service="mastering">Book Mastering</a>
+        <a class="btn ghost de" href="#contact" data-service="mastering">Mastering anfragen</a>
       </article>
     </div>
     <p class="price-note en">Prices per song, including VAT. Labels and multi-track releases: ask for a project quote.</p>
     <p class="price-note de">Preise pro Song, inklusive MwSt. Labels und Releases mit mehreren Songs: Projektangebot auf Anfrage.</p>
   </div>
 </section>
-<section class="stems" id="stems">
+
+<section id="problem">
   <div class="container">
-    <span class="section-marker en">Why stems</span>
-    <span class="section-marker de">Warum Stems</span>
-    <p class="statement en">A stereo master can improve a record. A stem master gives more freedom to make the right decisions.<small>Sometimes the right move is not another limiter. Sometimes it is changing the relationship between kick and bass, giving the vocal more space or reducing harshness before it becomes part of the master.</small></p>
-    <p class="statement de">Ein Stereo-Master kann einen Track verbessern. Ein Stem-Master gibt mir die Freiheit für die richtigen Entscheidungen.<small>Manchmal ist der richtige Schritt nicht noch ein Limiter. Manchmal geht es um das Verhältnis von Kick und Bass, um mehr Raum für die Stimme oder um weniger Härte, bevor sie ins Master wandert.</small></p>
+    <div class="ps">
+      <div class="ps-half ps-problem">
+        <span class="ps-label en">The problem</span>
+        <span class="ps-label de">Das Problem</span>
+        <div class="problem-lines en">
+          <span>On a club system, the low end almost blows the speakers.</span>
+          <span>The hook loses its impact.</span>
+          <span>Details like these determine whether a track works outside your studio.</span>
+        </div>
+        <div class="problem-lines de">
+          <span>Im Club sprengt das Low End fast die Boxen.</span>
+          <span>Die Hook verliert ihre Wirkung.</span>
+          <span>Genau solche Details entscheiden, ob ein Track auch außerhalb deines Studios funktioniert.</span>
+        </div>
+      </div>
+      <div class="ps-half ps-solution">
+        <span class="ps-label en">The solution</span>
+        <span class="ps-label de">Die Lösung</span>
+        <p class="punch en">The last ten percent is not louder. It is better decisions.</p>
+        <p class="punch de">Die letzten zehn Prozent sind nicht lauter. Es sind die besseren Entscheidungen.</p>
+        <p class="ps-text en">I hear on the first listen whether a track works and what holds it back. Every decision in your master starts there.</p>
+        <p class="ps-text de">Ich höre beim ersten Durchlauf, ob ein Track funktioniert und was ihn bremst. Davon geht jede Entscheidung in deinem Master aus.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="room">
-  <div class="container split">
+<section class="band" id="track-check">
+  <div class="container narrow">
+    <span class="label en">Free test master</span>
+    <span class="label de">Kostenloses Testmaster</span>
+    <h2 class="en">Hear what’s possible.</h2>
+    <h2 class="de">Hör, was möglich ist.</h2>
+    <p class="lead en">Send me your track. I’ll send you a 30 second test master and my feedback. You decide whether we work together.</p>
+    <p class="lead de">Schick mir deinen Track. Ich schicke dir ein 30-sekündiges Testmaster und mein Feedback dazu. Du entscheidest, ob wir zusammenarbeiten.</p>
+    <p class="body en">A mastered 30 second excerpt from your track, free of charge. Reply within 48 hours.</p>
+    <p class="body de">Ein bearbeiteter Ausschnitt deines Tracks, 30 Sekunden lang und kostenlos. Antwort innerhalb von 48 Stunden.</p>
+    <a class="btn en" href="#contact" data-service="test">Request a test master</a>
+    <a class="btn de" href="#contact" data-service="test">Testmaster anfragen</a>
+  </div>
+</section>
+
+<section id="room" class="stage">
+  <div class="container room">
     <div>
-      <span class="section-marker">The Room</span>
       <h2 class="en">You can only finish what you can hear.</h2>
       <h2 class="de">Du kannst nur finishen, was du auch hören kannst.</h2>
-      <p class="lead en">I work on Kii Audio THREE in an acoustically well treated room. Decisions that translate, no guesswork.</p>
-      <p class="lead de">Ich arbeite auf Kii Audio THREE in einem akustisch gut behandelten Raum. Entscheidungen, die überall tragen. No guesswork.</p>
-      </div>
-    <div class="room-media">
-      <img src="kii-room.jpg" alt="Kii Audio THREE in the Pica Mastering room" class="room-img" loading="lazy">
+      <p class="lead en">I work on Kii Audio THREE and Genelec in an acoustically well treated room. Decisions that translate, no guesswork.</p>
+      <p class="lead de">Ich arbeite auf Kii Audio THREE und Genelec in einem akustisch gut behandelten Raum. Entscheidungen, die überall tragen. No guesswork.</p>
     </div>
+    <img src="kii-room.jpg" alt="Kii Audio THREE in the Pica Mastering room" class="room-img">
   </div>
   <div class="gear-ticker" aria-hidden="true"><div class="gear-track"><span>Kii Audio THREE</span><span class="sep">·</span><span>Genelec</span><span class="sep">·</span><span>Weiss</span><span class="sep">·</span><span>Maselec</span><span class="sep">·</span><span>Dangerous Music</span><span class="sep">·</span><span>Schwabe Digital</span><span class="sep">·</span><span>Brainworx</span><span class="sep">·</span><span>Eventide</span><span class="sep">·</span><span>Metric Halo</span><span class="sep">·</span><span>FabFilter</span><span class="sep">·</span><span>MixWave</span><span class="sep">·</span><span>Soundtheory</span><span class="sep">·</span><span>Process Audio</span><span class="sep">·</span><span>25 Years</span><span class="sep">·</span><span>Kii Audio THREE</span><span class="sep">·</span><span>Genelec</span><span class="sep">·</span><span>Weiss</span><span class="sep">·</span><span>Maselec</span><span class="sep">·</span><span>Dangerous Music</span><span class="sep">·</span><span>Schwabe Digital</span><span class="sep">·</span><span>Brainworx</span><span class="sep">·</span><span>Eventide</span><span class="sep">·</span><span>Metric Halo</span><span class="sep">·</span><span>FabFilter</span><span class="sep">·</span><span>MixWave</span><span class="sep">·</span><span>Soundtheory</span><span class="sep">·</span><span>Process Audio</span><span class="sep">·</span><span>25 Years</span><span class="sep">·</span></div></div>
 </section>
 
-<section id="about">
+<section id="about" class="rule">
   <div class="container split">
     <div>
-      <span class="section-marker">About</span>
       <h2 class="en">25 years between club culture, broadcast and commercial audio.</h2>
       <h2 class="de">25 Jahre zwischen Clubkultur, Broadcast und Commercial Audio.</h2>
     </div>
     <div>
-      <p class="body en">I have spent decades listening to records where they actually have to work: radio, club systems, commercial audio and real listeners. My goal is not maximum loudness. My goal is a record that holds up in context.</p>
-      <p class="body de">Seit Jahrzehnten höre ich Tracks dort, wo sie sich beweisen müssen: im Radio, auf Clubanlagen, in kommerziellen Anwendungen und bei echten Hörern. Mein Ziel ist kein maximal lauter Song. Mein Ziel ist ein Track, der sich im Kontext durchsetzt.</p>
+      <p class="body en" style="margin-top:0">I helped build one of the most successful mix shows on German radio and spent years picking what went on air. I still dig through stacks of new music every week. After 25 years that is an archive in my head of how a genre has to sound and what a track needs to work. Enough low end for the club to love it, and enough top end to sound shiny and expensive on the radio. Your track needs both, and I know how much of each. I am not here to make your track as loud as possible. I am here to make it hit the people you made it for, wherever they hear it.</p>
+      <p class="body de" style="margin-top:0">Ich habe eine der erfolgreichsten Mixshows im deutschen Radio mit aufgebaut und jahrelang entschieden, was on air geht. Bis heute grabe ich mich jede Woche durch Unmengen neuer Musik. Nach 25 Jahren ist das ein Archiv im Kopf, wie ein Genre klingen muss und was ein Track braucht, um zu funktionieren. Genug Low End, damit der Club den Track liebt, und genug Glow im Top End, damit er im Radio funktioniert. Dein Track braucht beides, und ich weiß, wie viel von jedem. Ich mache deinen Track nicht einfach so laut wie möglich. Ich sorge dafür, dass er bei den Leuten ankommt, für die du ihn gemacht hast, egal wo sie ihn hören.</p>
       <div class="trust-grid">
         <div class="trust-item"><strong>25+</strong><span>Years</span></div>
         <div class="trust-item"><strong>Club</strong><span>Culture</span></div>
@@ -348,14 +420,14 @@ footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);fon
   </div>
 </section>
 
-<section id="faq" class="track-check">
+<section id="faq" class="band">
   <div class="container">
-    <span class="section-marker">FAQ</span>
+    <h2>FAQ</h2>
     <div class="faq-list">
       <details class="faq-item" open>
         <summary><span class="en">Mastering or stem mastering?</span><span class="de">Mastering oder Stem Mastering?</span></summary>
-        <p class="en">If the mix is finished, mastering is enough. If the record is close but still needs balance, low end or vocal adjustments, stem mastering is usually the stronger route.</p>
-        <p class="de">Wenn der Mix fertig ist, reicht Mastering. Wenn der Track nah dran ist, aber noch Balance, Low End oder Vocal-Anpassungen braucht, ist Stem Mastering meistens der stärkere Weg.</p>
+        <p class="en">That is an individual decision and depends on your mix. Some mixes only need the final polish. In others the problems sit so deep that no stereo master can solve them. Send me your track and I will tell you honestly which route makes sense.</p>
+        <p class="de">Das ist eine individuelle Entscheidung und hängt von deinem Mix ab. Manche Mixe brauchen nur noch den letzten Schliff. Bei anderen sitzen die Probleme so tief, dass sie kein Stereo-Master lösen kann. Schick mir deinen Track, dann sage ich dir ehrlich, welcher Weg Sinn ergibt.</p>
       </details>
       <details class="faq-item">
         <summary><span class="en">What should I send?</span><span class="de">Was soll ich schicken?</span></summary>
@@ -390,8 +462,8 @@ footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);fon
     </div>
 
     <div class="prep" id="prep">
-      <span class="section-marker en">File prep</span>
-      <span class="section-marker de">Dateien vorbereiten</span>
+      <span class="label en">File prep</span>
+      <span class="label de">Dateien vorbereiten</span>
       <h3 class="prep-title en">Clean files, better decisions.</h3>
       <h3 class="prep-title de">Saubere Dateien, bessere Entscheidungen.</h3>
       <dl class="prep-list en">
@@ -417,58 +489,87 @@ footer{border-top:1px solid var(--line2);padding:2.5rem 0;color:var(--faint);fon
 </section>
 
 <section class="cta" id="contact">
-  <div class="container">
-    <span class="section-marker en">Free test master</span>
-    <span class="section-marker de">Kostenloser Testmaster</span>
-    <h2 class="en">Hear what’s possible.</h2>
-    <h2 class="de">Hör, was möglich ist.</h2>
-    <p class="lead en">Send me your track. I’ll send you a 30 second test master and my feedback. You decide whether we work together.</p>
-    <p class="lead de">Schick mir deinen Track. Ich schicke dir ein 30-sekündiges Testmaster und mein Feedback dazu. Du entscheidest, ob wir zusammenarbeiten.</p>
-    <form class="form" action="https://formspree.io/f/mzdyggpq" method="POST">
-      <input type="hidden" name="_subject" value="Test master request via picamastering.com">
+  <div class="container narrow">
+    <h2 class="en">Send me your track.</h2>
+    <h2 class="de">Schick mir deinen Track.</h2>
+    <p class="lead en">Pick what you need and add a private download link. I will get back to you personally.</p>
+    <p class="lead de">Wähl aus, was du brauchst, und schick mir einen privaten Downloadlink. Ich melde mich persönlich bei dir.</p>
+    <form class="form" id="order-form" action="https://formspree.io/f/mzdyggpq" method="POST">
+      <input type="hidden" name="_subject" id="f-subject" value="Request via picamastering.com">
+      <fieldset class="svc">
+        <legend><span class="en">What do you need?</span><span class="de">Was brauchst du?</span></legend>
+        <div class="svc-opts">
+          <label class="svc-opt"><input type="radio" name="service" value="Mixing" data-key="mixing" required><span class="chip">Mixing</span></label>
+          <label class="svc-opt"><input type="radio" name="service" value="Stem Mastering" data-key="stem"><span class="chip">Stem Mastering</span></label>
+          <label class="svc-opt"><input type="radio" name="service" value="Mastering" data-key="mastering"><span class="chip">Mastering</span></label>
+          <label class="svc-opt"><input type="radio" name="service" value="Free test master" data-key="test"><span class="chip"><span class="en">Free test master</span><span class="de">Kostenloses Testmaster</span></span></label>
+        </div>
+      </fieldset>
       <div class="form-row">
-        <div class="field"><label>Name</label><input name="name" required placeholder="Artist or producer name"></div>
-        <div class="field"><label>Email</label><input type="email" name="email" required placeholder="you@domain.com"></div>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" required placeholder="Artist or producer name"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required placeholder="you@domain.com"></div>
       </div>
-      <div class="field"><label>Track link</label><input type="url" name="track_link" required placeholder="Private download link: Dropbox, WeTransfer..."></div>
-      <div class="field"><label>Context optional</label><textarea name="context" placeholder="Genre, references, what you feel is not working..."></textarea></div>
-      <button class="submit" type="submit"><span class="en">Request a test master</span><span class="de">Testmaster anfragen</span></button>
+      <div class="field"><label for="f-link" id="f-link-label"><span class="en">Download link</span><span class="de">Downloadlink</span></label><input id="f-link" type="url" name="track_link" required placeholder="Private download link: Dropbox, WeTransfer..."></div>
+      <div class="field"><label for="f-context">Context (optional)</label><textarea id="f-context" name="context" placeholder="Genre, references, release date, what you feel is not working..."></textarea></div>
+      <button class="submit" type="submit" id="f-submit"><span class="en">Send request</span><span class="de">Anfrage senden</span></button>
+      <p class="form-note" id="form-note" hidden>Preview only. The form sends nothing here, on the live site it goes through as usual.</p>
     </form>
-    <p class="body en">Prefer email? Write to <a href="mailto:hey@picamastering.com" style="color:var(--copper2)">hey@picamastering.com</a>.</p>
-    <p class="body de">Lieber direkt per Mail? Schreib an <a href="mailto:hey@picamastering.com" style="color:var(--copper2)">hey@picamastering.com</a>.</p>
+    <p class="mail-line en">Prefer email? Write to <a href="mailto:hey@picamastering.com">hey@picamastering.com</a>.</p>
+    <p class="mail-line de">Lieber direkt per Mail? Schreib an <a href="mailto:hey@picamastering.com">hey@picamastering.com</a>.</p>
   </div>
 </section>
 
 <footer>
   <div class="container footer-row">
-    <div>© 2026 Pica Mastering · Leipzig, Germany</div>
+    <div>© 2026 Pica Mastering, Leipzig, Germany</div>
     <div class="footer-links">
-      <a href="https://www.instagram.com/picamastering/" target="_blank" rel="noopener noreferrer" aria-label="Pica Mastering on Instagram">Instagram</a>
-      <a href="https://elstersidestudios.de">ElsterSide Studios</a>
+      <a href="https://www.instagram.com/picamastering/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://elstersidestudios.de" target="_blank" rel="noopener">ElsterSide Studios</a>
       <a href="https://www.linkedin.com/in/jensrotte/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://elstersidestudios.de/impressum.html">Impressum</a>
-      <a href="https://elstersidestudios.de/impressum.html#privacy">Privacy</a>
+      <a href="https://elstersidestudios.de/impressum.html" target="_blank" rel="noopener">Impressum</a>
+      <a href="https://elstersidestudios.de/impressum.html#privacy" target="_blank" rel="noopener">Privacy</a>
     </div>
   </div>
 </footer>
+
 <script>
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50),{passive:true});
-function setLang(l){document.body.className='lang-'+l;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===l.toUpperCase()));localStorage.setItem('lang',l)}
-setLang(localStorage.getItem('lang')||'en');
-window.addEventListener('load',()=>document.querySelectorAll('.reveal').forEach((el,i)=>setTimeout(()=>el.classList.add('on'),100*i)));
 (function(){
-  function fixHashScroll(){
-    if(!location.hash) return;
-    var el=document.querySelector(location.hash);
-    if(!el) return;
-    var offset=nav?nav.offsetHeight:82;
-    var y=el.getBoundingClientRect().top+window.pageYOffset-offset;
-    window.scrollTo(0,y);
+  var lang='en';
+  var SVC={
+    none:{link:['Download link','Downloadlink'],submit:['Send request','Anfrage senden'],subject:'Request via picamastering.com'},
+    test:{link:['Link to your full track (WAV or AIFF)','Link zu deinem kompletten Track (WAV oder AIFF)'],submit:['Request a test master','Testmaster anfragen'],subject:'Test master request via picamastering.com'},
+    mixing:{link:['Link to your session or multitracks','Link zu deiner Session oder den Spuren'],submit:['Book Mixing','Mixing anfragen'],subject:'Mixing request via picamastering.com'},
+    stem:{link:['Link to your stems','Link zu deinen Stems'],submit:['Book Stem Mastering','Stem Mastering anfragen'],subject:'Stem Mastering request via picamastering.com'},
+    mastering:{link:['Link to your mix','Link zu deinem Mix'],submit:['Book Mastering','Mastering anfragen'],subject:'Mastering request via picamastering.com'}
+  };
+  function both(pair){return '<span class="en">'+pair[0]+'</span><span class="de">'+pair[1]+'</span>'}
+  function current(){var c=document.querySelector('input[name="service"]:checked');return c?c.dataset.key:'none'}
+  function refresh(){
+    var c=SVC[current()];
+    document.getElementById('f-link-label').innerHTML=both(c.link);
+    document.getElementById('f-submit').innerHTML=both(c.submit);
+    document.getElementById('f-subject').value=c.subject;
   }
-  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fixHashScroll);}else{fixHashScroll();}
-  window.addEventListener('load',fixHashScroll);
-  setTimeout(fixHashScroll,500);
+  function pick(key){
+    var r=document.querySelector('input[name="service"][data-key="'+key+'"]');
+    if(r){r.checked=true;refresh()}
+  }
+  function setLang(l){
+    lang=l;
+    document.body.classList.remove('lang-en','lang-de');document.body.classList.add('lang-'+l);
+    document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===l)});
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+  var saved='en';try{saved=localStorage.getItem('lang')||'en'}catch(e){}
+  setLang(saved);
+  document.querySelectorAll('input[name="service"]').forEach(function(r){r.addEventListener('change',refresh)});
+  document.querySelectorAll('[data-service]').forEach(function(a){a.addEventListener('click',function(){pick(a.dataset.service)})});
+  refresh();
+  var live=/(^|\.)picamastering\.com$/.test(location.hostname);
+  document.getElementById('order-form').addEventListener('submit',function(e){
+    if(!live){e.preventDefault();document.getElementById('form-note').hidden=false}
+  });
 })();
 </script>
 </body>
