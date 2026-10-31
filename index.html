@@ -190,6 +190,7 @@ textarea{min-height:104px;resize:vertical}
 
 /* Service choice in the form */
 .svc{border:0;margin:0 0 1.3rem;padding:0;min-width:0}
+.sr-only{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .svc legend{font-family:var(--panel);font-size:.85rem;font-weight:500;color:var(--on-dark-dim);margin-bottom:.6rem;padding:0}
 .svc-opts{display:flex;flex-wrap:wrap;gap:.5rem}
 .svc-opt{position:relative}
@@ -492,12 +493,12 @@ section[id]{scroll-margin-top:80px}
   <div class="container narrow">
     <h2 class="en">Send me your track.</h2>
     <h2 class="de">Schick mir deinen Track.</h2>
-    <p class="lead en">Pick what you need and add a private download link. I will get back to you personally.</p>
-    <p class="lead de">Wähl den passenden Service und schick mir einen privaten Downloadlink. Ich melde mich dann persönlich bei dir.</p>
+    <p class="lead en">Choose the right service and send me a private download link. I will get back to you personally.</p>
+    <p class="lead de">Wähle den passenden Service und schick mir einen privaten Downloadlink. Ich melde mich dann persönlich bei dir.</p>
     <form class="form" id="order-form" action="https://formspree.io/f/mzdyggpq" method="POST">
       <input type="hidden" name="_subject" id="f-subject" value="Request via picamastering.com">
       <fieldset class="svc">
-        <legend><span class="en">What do you need?</span><span class="de">Was brauchst du?</span></legend>
+        <legend class="sr-only"><span class="en">Service</span><span class="de">Service</span></legend>
         <div class="svc-opts">
           <label class="svc-opt"><input type="radio" name="service" value="Mixing" data-key="mixing" required><span class="chip">Mixing</span></label>
           <label class="svc-opt"><input type="radio" name="service" value="Stem Mastering" data-key="stem"><span class="chip">Stem Mastering</span></label>
