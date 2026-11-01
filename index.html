@@ -70,7 +70,10 @@ nav .container{height:72px;display:flex;align-items:center;justify-content:space
 .hero-bg{position:absolute;inset:0;background:url('studio-hero.jpg') 50% 60%/cover no-repeat}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,21,23,.62) 0%,rgba(20,21,23,.3) 42%,rgba(20,21,23,0) 70%),linear-gradient(0deg,rgba(20,21,23,.45) 0%,rgba(20,21,23,0) 45%)}
 .hero-inner{position:relative;z-index:1;width:100%}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.1;letter-spacing:-.005em;max-width:28ch;margin-bottom:1rem}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.1;letter-spacing:-.005em;max-width:28ch;margin-bottom:1.3rem}
+.mark{display:block;width:32px;height:1px;background:#d40000;margin:0 0 1.2rem}
+.service.flagship .choice-tag{display:flex;align-items:center;gap:.6rem}
+.service.flagship .choice-tag::before{content:"";flex:none;width:20px;height:1px;background:#d40000}
 .hero-sub{font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.6;color:rgba(242,242,240,.86);max-width:36rem}
 .hero-btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
 .hbtn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 1.3rem;font-family:var(--panel);font-size:.95rem;font-weight:500;text-decoration:none;border-radius:2px;transition:background .2s,border-color .2s}
@@ -256,6 +259,7 @@ section[id]{scroll-margin-top:80px}
   <div class="hero-bg"></div>
   <div class="container hero-inner">
     <h1>Your track is close.<br>Let's get it across the finish&nbsp;line.</h1>
+    <span class="mark" aria-hidden="true"></span>
     <p class="hero-sub en">Your track has to work everywhere, from an iPhone to the mighty Funktion-One.</p>
     <p class="hero-sub de">Dein Track muss überall funktionieren, vom iPhone bis zur Funktion-One.</p>
     <div class="hero-btns">
