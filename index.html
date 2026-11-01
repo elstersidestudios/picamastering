@@ -136,6 +136,24 @@ body.lang-de .ps-label.de{display:block}
 .btn.light:hover{background:#fff}
 .price-note{font-family:var(--panel);font-size:.86rem;color:var(--faint);margin-top:1.6rem}
 
+/* Release pricing and Express: one white panel under the tiles, two halves split by a hairline */
+.release{display:grid;grid-template-columns:1.2fr 1fr;margin-top:1rem;background:#fff;border:1px solid var(--line-2);border-radius:2px}
+.release>div{display:flex;flex-direction:column;padding:1.9rem 1.8rem 2rem;min-width:0}
+.release>div+div{border-left:1px solid var(--line-2)}
+.release-label{display:block;font-family:var(--panel);font-size:.8rem;color:var(--faint);margin-bottom:.5rem}
+.release h3{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.2;margin-bottom:.7rem;text-wrap:balance}
+.release p{color:var(--dim);font-size:.98rem;line-height:1.75;max-width:34rem}
+.rtable-wrap{margin-top:auto;padding-top:1.4rem;overflow-x:auto}
+.rtable{width:100%;border-collapse:collapse;font-family:var(--panel);font-size:.9rem;font-variant-numeric:tabular-nums}
+.rtable th,.rtable td{padding:.55rem 0;border-bottom:1px solid var(--line-2);text-align:right;font-weight:400;white-space:nowrap}
+.rtable th:first-child,.rtable td:first-child{text-align:left;padding-right:1rem}
+.rtable thead th{font-size:.8rem;font-weight:500;color:var(--faint);border-top:1px solid var(--line-2)}
+.rtable td:first-child{color:var(--dim)}
+.rtable td+td,.rtable th+th{padding-left:1rem}
+
+/* Express option in the form, shown for mastering and stem mastering */
+.xp-row{margin-top:.6rem}
+
 .statement{font-family:var(--display);font-size:clamp(1.4rem,2.4vw,1.95rem);line-height:1.3;max-width:40rem;text-wrap:balance}
 .statement small{display:block;font-family:var(--serif);font-size:1rem;line-height:1.75;color:var(--dim);margin-top:1.2rem}
 
@@ -233,6 +251,10 @@ section[id]{scroll-margin-top:80px}
   .split,.room{gap:2rem}
   .room-img{justify-self:center;max-width:220px}
   .services-grid{grid-template-columns:1fr}
+  .release{grid-template-columns:1fr}
+  .release>div{padding:1.6rem 1.3rem 1.8rem}
+  .release>div+div{border-left:0;border-top:1px solid var(--line-2)}
+  .rtable td:first-child{white-space:normal}
   .service{padding:1.6rem 1.3rem}
   .prep-list div{grid-template-columns:1fr;gap:.2rem}
   .trust-grid{gap:.6rem}
@@ -291,14 +313,14 @@ section[id]{scroll-margin-top:80px}
           <li>Electronic and pop productions</li>
           <li>Mixed here? A stereo master is all it needs, no stems required</li>
           <li>Final price depends on track count and session prep, confirmed before we start</li>
-          <li>5 business days, one revision round included</li>
+          <li>3 to 7 business days, one revision round included</li>
         </ul>
         <ul class="de">
           <li>Instrumental- und Vocal-Mixing</li>
           <li>Elektronische und Pop-Produktionen</li>
           <li>Bei mir gemischt? Dann reicht ein Stereo-Master, keine Stems nötig</li>
           <li>Endpreis nach Spurenanzahl und Vorbereitung, vorab verbindlich bestätigt</li>
-          <li>5 Werktage, eine Revisionsrunde inklusive</li>
+          <li>3 bis 7 Werktage, eine Revisionsrunde inklusive</li>
         </ul>
         <a class="btn ghost en" href="#contact" data-service="mixing">Book Mixing</a>
         <a class="btn ghost de" href="#contact" data-service="mixing">Mixing anfragen</a>
@@ -315,13 +337,15 @@ section[id]{scroll-margin-top:80px}
           <li>Up to 8 stem groups</li>
           <li>Targeted decisions per group</li>
           <li>Streaming master as 24-bit WAV</li>
-          <li>2 to 3 business days, one revision round included</li>
+          <li>3 to 7 business days, one revision round included</li>
+          <li>Express on request: ready in 2 business days, +30%</li>
         </ul>
         <ul class="de">
           <li>Bis zu 8 Stem-Gruppen</li>
           <li>Gezielte Eingriffe in jede Gruppe</li>
           <li>Streaming-Master als 24-bit WAV</li>
-          <li>2 bis 3 Werktage, eine Revisionsrunde inklusive</li>
+          <li>3 bis 7 Werktage, eine Revisionsrunde inklusive</li>
+          <li>Express auf Wunsch: fertig in 2 Werktagen, +30 %</li>
         </ul>
         <a class="btn light en" href="#contact" data-service="stem">Book Stem Mastering</a>
         <a class="btn light de" href="#contact" data-service="stem">Stem Mastering anfragen</a>
@@ -338,20 +362,57 @@ section[id]{scroll-margin-top:80px}
           <li>Consistent across every song on a release</li>
           <li>Streaming master as 24-bit WAV</li>
           <li>Instrumental and clean versions on request</li>
-          <li>2 to 3 business days, one revision round included</li>
+          <li>3 to 7 business days, one revision round included</li>
+          <li>Express on request: ready in 2 business days, +30%</li>
         </ul>
         <ul class="de">
           <li>Alle Songs eines Releases klingen wie aus einem Guss</li>
           <li>Streaming-Master als 24-bit WAV</li>
           <li>Instrumental- und Clean-Version auf Wunsch</li>
-          <li>2 bis 3 Werktage, eine Revisionsrunde inklusive</li>
+          <li>3 bis 7 Werktage, eine Revisionsrunde inklusive</li>
+          <li>Express auf Wunsch: fertig in 2 Werktagen, +30 %</li>
         </ul>
         <a class="btn ghost en" href="#contact" data-service="mastering">Book Mastering</a>
         <a class="btn ghost de" href="#contact" data-service="mastering">Mastering anfragen</a>
       </article>
     </div>
-    <p class="price-note en">Prices per song, including VAT. Labels and multi-track releases: ask for a project quote.</p>
-    <p class="price-note de">Preise pro Song, inklusive MwSt. Labels und Releases mit mehreren Songs: Projektangebot auf Anfrage.</p>
+    <div class="release" id="release">
+      <div>
+        <span class="release-label">EP &amp; Album</span>
+        <h3 class="en">One release, one sound.</h3>
+        <h3 class="de">Ein Release, ein Sound.</h3>
+        <p class="en">Every track of your EP or album runs through the same session, against the same reference. So the release plays like one record from the first track to the last, and you pay less per track.</p>
+        <p class="de">Alle Tracks deiner EP oder deines Albums laufen durch dieselbe Session und gegen dieselbe Referenz. So klingt das Release vom ersten bis zum letzten Track wie aus einem Guss, und du zahlst weniger pro Track.</p>
+        <div class="rtable-wrap">
+          <table class="rtable">
+            <thead><tr><th><span class="en">Per track</span><span class="de">Pro Track</span></th><th>Mastering</th><th>Stem Mastering</th></tr></thead>
+            <tbody>
+              <tr><td>Single</td><td>80&nbsp;€</td><td>130&nbsp;€</td></tr>
+              <tr><td><span class="en">EP, 3 to 5 tracks</span><span class="de">EP, 3 bis 5 Tracks</span></td><td>70&nbsp;€</td><td>115&nbsp;€</td></tr>
+              <tr><td><span class="en">Album, 6 tracks or more</span><span class="de">Album, ab 6 Tracks</span></td><td>65&nbsp;€</td><td>110&nbsp;€</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <span class="release-label">Express</span>
+        <h3 class="en">Release date coming up fast?</h3>
+        <h3 class="de">Der Release-Termin drängt?</h3>
+        <p class="en">With Express your master is ready within 2 business days instead of 3 to 7. It costs 30% on top and works for mastering and stem mastering. I confirm the slot before we start, so you know exactly when your master lands.</p>
+        <p class="de">Mit Express ist dein Master innerhalb von 2 Werktagen fertig statt in 3 bis 7. Das kostet 30 % Aufschlag und gilt für Mastering und Stem Mastering. Den Slot bestätige ich dir vorab, damit du genau weißt, wann dein Master kommt.</p>
+        <div class="rtable-wrap">
+          <table class="rtable">
+            <thead><tr><th><span class="en">Single, Express</span><span class="de">Single, Express</span></th><th><span class="en">Price</span><span class="de">Preis</span></th></tr></thead>
+            <tbody>
+              <tr><td>Mastering</td><td>104&nbsp;€</td></tr>
+              <tr><td>Stem Mastering</td><td>169&nbsp;€</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p class="price-note en">Prices per song, including VAT. Labels and larger projects: ask for a project quote.</p>
+    <p class="price-note de">Preise pro Song, inklusive MwSt. Labels und größere Projekte: Projektangebot auf Anfrage.</p>
   </div>
 </section>
 
@@ -446,8 +507,8 @@ section[id]{scroll-margin-top:80px}
       </details>
       <details class="faq-item">
         <summary><span class="en">How fast is the reply?</span><span class="de">Wie schnell kommt die Antwort?</span></summary>
-        <p class="en">For the free test master, within 48 hours. Mastering and stem mastering take 2 to 3 business days, mixing 5.</p>
-        <p class="de">Beim kostenlosen Testmaster innerhalb von 48 Stunden. Mastering und Stem Mastering dauern 2 bis 3 Werktage, Mixing 5.</p>
+        <p class="en">For the free test master, within 48 hours. Mixing, stem mastering and mastering take 3 to 7 business days depending on the queue, with one revision round included. Need it sooner? Express gets mastering and stem mastering done within 2 business days for 30% on top.</p>
+        <p class="de">Beim kostenlosen Testmaster innerhalb von 48 Stunden. Mixing, Stem Mastering und Mastering dauern je nach Auslastung 3 bis 7 Werktage, eine Revisionsrunde inklusive. Brauchst du es schneller? Mit Express sind Mastering und Stem Mastering innerhalb von 2 Werktagen fertig, gegen 30 % Aufschlag.</p>
       </details>
       <details class="faq-item">
         <summary><span class="en">Limiter on my mix bus?</span><span class="de">Limiter auf der Summe?</span></summary>
@@ -514,6 +575,9 @@ section[id]{scroll-margin-top:80px}
           <label class="svc-opt"><input type="radio" name="service" value="Mastering" data-key="mastering"><span class="chip">Mastering</span></label>
           <label class="svc-opt"><input type="radio" name="service" value="Free test master" data-key="test"><span class="chip"><span class="en">Free test master</span><span class="de">Kostenloses Testmaster</span></span></label>
         </div>
+        <div class="svc-opts xp-row" id="xp-wrap" hidden>
+          <label class="svc-opt"><input type="checkbox" id="f-express" name="express" value="Yes"><span class="chip"><span class="en">Express, ready in 2 business days (+30%)</span><span class="de">Express, fertig in 2 Werktagen (+30 %)</span></span></label>
+        </div>
         <p class="err" id="err-service" hidden><span class="en">Please choose a service.</span><span class="de">Bitte wähle einen Service.</span></p>
       </fieldset>
       <div class="form-row">
@@ -521,7 +585,7 @@ section[id]{scroll-margin-top:80px}
         <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@domain.com"><p class="err" id="err-email" hidden><span class="en">Please check your email address.</span><span class="de">Bitte prüf deine E-Mail-Adresse.</span></p></div>
       </div>
       <div class="field"><label for="f-link" id="f-link-label"><span class="en">Download link</span><span class="de">Downloadlink</span></label><input id="f-link" type="text" inputmode="url" name="track_link" required autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Private download link: Dropbox, WeTransfer..."><p class="err" id="err-link" hidden><span class="en">Please paste a download link, for example from WeTransfer or Dropbox.</span><span class="de">Bitte füg einen Downloadlink ein, zum Beispiel von WeTransfer oder Dropbox.</span></p></div>
-      <div class="field"><label for="f-context">Context (optional)</label><textarea id="f-context" name="context" placeholder="Genre, references, release date, what you feel is not working..."></textarea></div>
+      <div class="field"><label for="f-context">Context (optional)</label><textarea id="f-context" name="context" placeholder="Genre, references, release date, number of tracks, what you feel is not working..."></textarea></div>
       <button class="submit" type="submit" id="f-submit"><span class="en">Send request</span><span class="de">Anfrage senden</span></button>
       <p class="form-note" id="form-note" hidden>Preview only. The form sends nothing here, on the live site it goes through as usual.</p>
       <p class="err" id="err-send" hidden><span class="en">That did not go through. Please try again or write to hey@picamastering.com.</span><span class="de">Das hat nicht geklappt. Bitte versuch es noch einmal oder schreib an hey@picamastering.com.</span></p>
@@ -561,10 +625,14 @@ section[id]{scroll-margin-top:80px}
   function both(pair){return '<span class="en">'+pair[0]+'</span><span class="de">'+pair[1]+'</span>'}
   function current(){var c=document.querySelector('input[name="service"]:checked');return c?c.dataset.key:'none'}
   function refresh(){
-    var c=SVC[current()];
+    var k=current(), c=SVC[k];
+    var xpOk=(k==='stem'||k==='mastering');
+    var xp=document.getElementById('f-express');
+    document.getElementById('xp-wrap').hidden=!xpOk;
+    if(!xpOk)xp.checked=false;
     document.getElementById('f-link-label').innerHTML=both(c.link);
     document.getElementById('f-submit').innerHTML=both(c.submit);
-    document.getElementById('f-subject').value=c.subject;
+    document.getElementById('f-subject').value=c.subject+(xp.checked?' (EXPRESS)':'');
   }
   function pick(key){
     var r=document.querySelector('input[name="service"][data-key="'+key+'"]');
@@ -580,6 +648,7 @@ section[id]{scroll-margin-top:80px}
   var saved='en';try{saved=localStorage.getItem('lang')||'en'}catch(e){}
   setLang(saved);
   document.querySelectorAll('input[name="service"]').forEach(function(r){r.addEventListener('change',refresh)});
+  document.getElementById('f-express').addEventListener('change',refresh);
   document.querySelectorAll('[data-service]').forEach(function(a){a.addEventListener('click',function(){pick(a.dataset.service)})});
   refresh();
   var live=/(^|\.)picamastering\.com$/.test(location.hostname);
