@@ -73,8 +73,6 @@ nav .container{height:72px;display:flex;align-items:center;justify-content:space
 .hero-inner{position:relative;z-index:1;width:100%}
 h1{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.1;letter-spacing:-.005em;max-width:28ch;margin-bottom:1.3rem}
 .mark{display:block;width:32px;height:1px;background:#d40000;margin:0 0 1.2rem}
-.service.flagship .choice-tag{display:flex;align-items:center;gap:.6rem}
-.service.flagship .choice-tag::before{content:"";flex:none;width:20px;height:1px;background:#d40000}
 .hero-sub{font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.6;color:rgba(242,242,240,.86);max-width:36rem}
 .hero-btns{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
 .hbtn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 1.3rem;font-family:var(--panel);font-size:.95rem;font-weight:500;text-decoration:none;border-radius:2px;transition:background .2s,border-color .2s}
@@ -120,7 +118,6 @@ body.lang-de .ps-label.de{display:block}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}
 .service{display:flex;flex-direction:column;padding:1.9rem 1.8rem 1.9rem;min-width:0;background:#fff;border:1px solid var(--line-2);border-radius:2px;scroll-margin-top:96px}
 .service h3{font-family:var(--display);font-weight:400;font-size:1.75rem;line-height:1.1;margin-bottom:.35rem}
-.service .choice-tag{display:block;height:1.3rem;line-height:1.3rem;margin-bottom:.4rem;font-family:var(--panel);font-size:.8rem;color:var(--faint)}
 .service-claim{font-style:italic;color:var(--dim);margin-bottom:1rem}
 .price{font-family:var(--panel);font-size:1.1rem;font-weight:500;margin-bottom:1rem;font-variant-numeric:tabular-nums}
 .price span{font-weight:400;color:var(--faint);margin-right:.3rem}
@@ -129,21 +126,12 @@ body.lang-de .ps-label.de{display:block}
 .service li{font-family:var(--panel);font-size:.88rem;line-height:1.55;color:var(--dim);padding:.55rem 0;border-bottom:1px solid var(--line-2)}
 .service .btn{margin-top:auto;align-self:flex-start}
 .service.flagship{background:var(--merrick);border-color:var(--merrick);color:var(--on-dark)}
-.service.flagship .choice-tag,.service.flagship .price span{color:var(--on-dark-dim)}
+.service.flagship .price span{color:var(--on-dark-dim)}
 .service.flagship .service-claim,.service.flagship p,.service.flagship li{color:var(--on-dark-dim)}
 .service.flagship ul,.service.flagship li{border-color:var(--on-dark-line)}
 .btn.light{background:var(--on-dark);color:var(--merrick);border-color:var(--on-dark)}
 .btn.light:hover{background:#fff}
 .price-note{font-family:var(--panel);font-size:.86rem;color:var(--faint);margin-top:1.6rem}
-
-/* Picker: one line per service, in the same grid columns as the tiles below */
-.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.8rem}
-.pick{display:flex;flex-direction:column;gap:.3rem;padding-top:.9rem;border-top:1px solid var(--line);text-decoration:none;min-width:0;transition:border-color .2s}
-.pick:hover{border-top-color:var(--merrick)}
-.pick-if{font-size:1rem;line-height:1.5;color:var(--dim)}
-.pick-go{font-family:var(--panel);font-size:.88rem;font-weight:500}
-.pick-go::after{content:"\2193";margin-left:.4rem;color:var(--faint)}
-.picker+.services-grid{margin-top:1.2rem}
 
 /* EP, album and Express: one quiet row under the tiles, details on demand */
 .more{margin-top:1.4rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -279,8 +267,6 @@ section[id]{scroll-margin-top:80px}
   .split,.room{gap:2rem}
   .room-img{justify-self:center;max-width:220px}
   .services-grid{grid-template-columns:1fr}
-  .picker{grid-template-columns:1fr;gap:0}
-  .pick{padding:.8rem 0}
   .more-body{grid-template-columns:1fr}
   .rtable td:first-child{white-space:normal}
   .portrait{max-width:240px;margin-top:1.4rem}
@@ -331,14 +317,8 @@ section[id]{scroll-margin-top:80px}
   <div class="container">
     <h2 class="en">Services and prices</h2>
     <h2 class="de">Leistungen und Preise</h2>
-    <div class="picker">
-      <a class="pick" href="#mixing"><span class="pick-if en">You have the parts, but it doesn't sound like a record yet.</span><span class="pick-if de">Die Parts sind da, aber es klingt noch nicht nach fertiger Platte.</span><span class="pick-go">Mixing</span></a>
-      <a class="pick" href="#stem-mastering"><span class="pick-if en">The mix is close, but kick, bass or vocal need targeted work.</span><span class="pick-if de">Der Mix ist nah dran, aber Kick, Bass oder Vocal brauchen gezielte Eingriffe.</span><span class="pick-go">Stem Mastering</span></a>
-      <a class="pick" href="#mastering"><span class="pick-if en">Your mix feels right and just needs the finish.</span><span class="pick-if de">Dein Mix fühlt sich richtig an und braucht nur noch das Finish.</span><span class="pick-go">Mastering</span></a>
-    </div>
     <div class="services-grid">
       <article class="service" id="mixing">
-        <span class="choice-tag"></span>
         <h3>Mixing</h3>
         <div class="service-claim en">Bring everything into shape.</div>
         <div class="service-claim de">Alles in Form bringen.</div>
@@ -365,7 +345,6 @@ section[id]{scroll-margin-top:80px}
         <a class="btn ghost de" href="#contact" data-service="mixing">Mixing anfragen</a>
       </article>
       <article class="service flagship" id="stem-mastering">
-        <span class="choice-tag">Mastered by a mixer</span>
         <h3>Stem Mastering</h3>
         <div class="service-claim en">Fix exactly what holds it back.</div>
         <div class="service-claim de">Gezielt eingreifen, wo es hakt.</div>
@@ -390,7 +369,6 @@ section[id]{scroll-margin-top:80px}
         <a class="btn light de" href="#contact" data-service="stem">Stem Mastering anfragen</a>
       </article>
       <article class="service" id="mastering">
-        <span class="choice-tag"></span>
         <h3>Mastering</h3>
         <div class="service-claim en">Where good mixes become finished records.</div>
         <div class="service-claim de">Aus einem guten Mix wird ein fertiger Song.</div>
