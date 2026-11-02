@@ -136,14 +136,27 @@ body.lang-de .ps-label.de{display:block}
 .btn.light:hover{background:#fff}
 .price-note{font-family:var(--panel);font-size:.86rem;color:var(--faint);margin-top:1.6rem}
 
-/* Release pricing and Express: one white panel under the tiles, two halves split by a hairline */
-.release{display:grid;grid-template-columns:1.2fr 1fr;margin-top:1rem;background:#fff;border:1px solid var(--line-2);border-radius:2px}
-.release>div{display:flex;flex-direction:column;padding:1.9rem 1.8rem 2rem;min-width:0}
-.release>div+div{border-left:1px solid var(--line-2)}
-.release-label{display:block;font-family:var(--panel);font-size:.8rem;color:var(--faint);margin-bottom:.5rem}
-.release h3{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.2;margin-bottom:.7rem;text-wrap:balance}
-.release p{color:var(--dim);font-size:.98rem;line-height:1.75;max-width:34rem}
-.rtable-wrap{margin-top:auto;padding-top:1.4rem;overflow-x:auto}
+/* Picker: one line per service, in the same grid columns as the tiles below */
+.intro-sub a{color:var(--merrick);text-underline-offset:3px}
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.pick{display:flex;flex-direction:column;gap:.3rem;padding-top:.9rem;border-top:1px solid var(--line);text-decoration:none;min-width:0;transition:border-color .2s}
+.pick:hover{border-top-color:var(--merrick)}
+.pick-if{font-size:1rem;line-height:1.5;color:var(--dim)}
+.pick-go{font-family:var(--panel);font-size:.88rem;font-weight:500}
+.pick-go::after{content:"\2193";margin-left:.4rem;color:var(--faint)}
+.picker+.services-grid{margin-top:1.2rem}
+
+/* EP, album and Express: one quiet row under the tiles, details on demand */
+.more{margin-top:1.4rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.more summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1rem 0;font-family:var(--panel);font-size:.95rem}
+.more summary::-webkit-details-marker{display:none}
+.more summary::after{content:"+";font-size:1.2rem;color:var(--faint);flex:none;transition:transform .2s}
+.more[open] summary::after{transform:rotate(45deg)}
+.more-body{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem 3rem;padding:.2rem 0 1.6rem}
+.more-body>*{min-width:0}
+.more-text{display:flex;flex-direction:column;gap:.8rem}
+.more-text p{color:var(--dim);font-size:.98rem;line-height:1.75}
+.rtable-wrap{overflow-x:auto}
 .rtable{width:100%;border-collapse:collapse;font-family:var(--panel);font-size:.9rem;font-variant-numeric:tabular-nums}
 .rtable th,.rtable td{padding:.55rem 0;border-bottom:1px solid var(--line-2);text-align:right;font-weight:400;white-space:nowrap}
 .rtable th:first-child,.rtable td:first-child{text-align:left;padding-right:1rem}
@@ -185,12 +198,28 @@ body.lang-de .ps-label.de{display:block}
 .faq-item summary::after{content:"+";font-family:var(--panel);font-size:1.2rem;color:var(--faint);flex:none;transition:transform .2s}
 .faq-item[open] summary::after{transform:rotate(45deg)}
 .faq-item p{color:var(--dim);max-width:42rem;padding-bottom:1.2rem}
-.prep{margin-top:4.5rem;max-width:46rem}
-.prep-title{font-family:var(--display);font-weight:400;font-size:clamp(1.45rem,2.4vw,1.9rem);line-height:1.2;margin-bottom:1.4rem}
-.prep-list{border-top:1px solid var(--line)}
-.prep-list div{display:grid;grid-template-columns:140px 1fr;gap:1.4rem;padding:.8rem 0;border-bottom:1px solid var(--line-2)}
-.prep-list dt{font-family:var(--panel);font-size:.88rem;font-weight:500;padding-top:.15rem}
-.prep-list dd{color:var(--dim);font-size:.98rem;min-width:0}
+.faq-item p a{text-underline-offset:3px}
+
+/* Portrait in About */
+.portrait{margin-top:2.2rem;max-width:300px}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:1;border-radius:2px;background:#111015}
+.portrait figcaption{margin-top:.8rem;font-family:var(--panel);font-size:.85rem;color:var(--faint)}
+.portrait figcaption strong{display:block;font-family:var(--display);font-weight:400;font-size:1.3rem;line-height:1.3;color:var(--merrick)}
+
+/* File prep: a checklist that opens right under the download link */
+.prep{margin:-.3rem 0 1.2rem;scroll-margin-top:110px}
+.prep summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--panel);font-size:.88rem;color:var(--on-dark-dim);text-decoration:underline;text-decoration-color:var(--on-dark-line);text-underline-offset:3px}
+.prep summary:hover{color:var(--on-dark)}
+.prep summary::-webkit-details-marker{display:none}
+.prep summary::after{content:"+";display:inline-block;transition:transform .2s}
+.prep[open] summary::after{transform:rotate(45deg)}
+.prep-list{margin-top:.8rem;border-top:1px solid var(--on-dark-line)}
+.prep-list div{display:grid;grid-template-columns:120px 1fr;gap:1.2rem;padding:.7rem 0;border-bottom:1px solid var(--on-dark-line)}
+.prep-list dt{font-family:var(--panel);font-size:.85rem;font-weight:500;color:var(--on-dark);padding-top:.1rem}
+.prep-list dd{font-family:var(--panel);font-size:.9rem;line-height:1.6;color:var(--on-dark-dim);min-width:0}
+
+/* Menu button, phone only */
+.menu-btn{display:none;align-items:center;background:transparent;border:1px solid var(--line);border-radius:2px;color:var(--merrick);font-family:var(--panel);font-size:.8rem;font-weight:500;padding:5px 10px;cursor:pointer}
 
 /* Closing surface in Merrick */
 .cta{background:var(--merrick);color:var(--on-dark)}
@@ -251,10 +280,15 @@ section[id]{scroll-margin-top:80px}
   .split,.room{gap:2rem}
   .room-img{justify-self:center;max-width:220px}
   .services-grid{grid-template-columns:1fr}
-  .release{grid-template-columns:1fr}
-  .release>div{padding:1.6rem 1.3rem 1.8rem}
-  .release>div+div{border-left:0;border-top:1px solid var(--line-2)}
+  .picker{grid-template-columns:1fr;gap:0}
+  .pick{padding:.8rem 0}
+  .more-body{grid-template-columns:1fr}
   .rtable td:first-child{white-space:normal}
+  .portrait{max-width:240px;margin-top:1.4rem}
+  .nav-right{gap:.7rem}
+  .menu-btn{display:inline-flex}
+  nav.open .nav-links{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;padding-block:.3rem 1rem;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));background:var(--cloud);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(20,21,23,.08)}
+  nav.open .nav-links a{padding:.8rem 0;border-bottom:1px solid var(--line-2);font-size:1rem;color:var(--merrick)}
   .service{padding:1.6rem 1.3rem}
   .prep-list div{grid-template-columns:1fr;gap:.2rem}
   .trust-grid{gap:.6rem}
@@ -267,12 +301,13 @@ section[id]{scroll-margin-top:80px}
   <div class="container">
     <a class="logo-link" href="#top" aria-label="Pica Mastering home"><img src="pica-logo-merrick.svg" class="pica-logo-svg" alt="Pica Mastering"></a>
     <div class="nav-right">
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="#services">Services</a>
         <a href="#room">The Room</a>
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
       </div>
+      <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="nav-links"><span class="en">Menu</span><span class="de">Menü</span></button>
       <div class="lang-toggle"><button class="lang-btn active" type="button" data-lang="en">EN</button><button class="lang-btn" type="button" data-lang="de">DE</button></div>
     </div>
   </div>
@@ -297,8 +332,13 @@ section[id]{scroll-margin-top:80px}
   <div class="container">
     <h2 class="en">Choose the right way to finish the record.</h2>
     <h2 class="de">Der richtige Weg zum fertigen Track.</h2>
-    <p class="intro-sub en">Mixing, stem mastering and mastering for electronic and pop records.</p>
-    <p class="intro-sub de">Mixing, Stem Mastering und Mastering für elektronische und Pop-Produktionen.</p>
+    <p class="intro-sub en">Mixing, stem mastering and mastering for electronic and pop records. Not sure which one fits? <a href="#contact">Write me a line</a> and I'll tell you honestly.</p>
+    <p class="intro-sub de">Mixing, Stem Mastering und Mastering für elektronische und Pop-Produktionen. Unsicher, was passt? <a href="#contact">Schreib mir kurz</a>, ich sag dir ehrlich, welcher Weg Sinn ergibt.</p>
+    <div class="picker">
+      <a class="pick" href="#mixing"><span class="pick-if en">You have the parts, but the balance isn't there yet.</span><span class="pick-if de">Die Parts sind da, aber die Balance stimmt noch nicht.</span><span class="pick-go">Mixing</span></a>
+      <a class="pick" href="#stem-mastering"><span class="pick-if en">The mix is close, but kick, bass or vocal need targeted work.</span><span class="pick-if de">Der Mix ist nah dran, aber Kick, Bass oder Vocal brauchen gezielte Eingriffe.</span><span class="pick-go">Stem Mastering</span></a>
+      <a class="pick" href="#mastering"><span class="pick-if en">Your mix feels right and just needs the finish.</span><span class="pick-if de">Dein Mix fühlt sich richtig an und braucht nur noch das Finish.</span><span class="pick-go">Mastering</span></a>
+    </div>
     <div class="services-grid">
       <article class="service" id="mixing">
         <span class="choice-tag"></span>
@@ -376,13 +416,15 @@ section[id]{scroll-margin-top:80px}
         <a class="btn ghost de" href="#contact" data-service="mastering">Mastering anfragen</a>
       </article>
     </div>
-    <div class="release" id="release">
-      <div>
-        <span class="release-label">EP &amp; Album</span>
-        <h3 class="en">One release, one sound.</h3>
-        <h3 class="de">Ein Release, ein Sound.</h3>
-        <p class="en">Every track of your EP or album runs through the same session, against the same reference. So the release plays like one record from the first track to the last, and you pay less per track.</p>
-        <p class="de">Alle Tracks deiner EP oder deines Albums laufen durch dieselbe Session und gegen dieselbe Referenz. So klingt das Release vom ersten bis zum letzten Track wie aus einem Guss, und du zahlst weniger pro Track.</p>
+    <details class="more" id="release">
+      <summary><span class="en">EP and album from 65&nbsp;€ per track. Express in 2 business days.</span><span class="de">EP und Album ab 65&nbsp;€ pro Track. Express in 2 Werktagen.</span></summary>
+      <div class="more-body">
+        <div class="more-text">
+          <p class="en">Every track of your EP or album runs through the same session against the same reference. So the release plays like one record from the first track to the last, and you pay less per track.</p>
+          <p class="de">Alle Tracks deiner EP oder deines Albums laufen durch dieselbe Session gegen dieselbe Referenz. So klingt das Release vom ersten bis zum letzten Track wie aus einem Guss, und du zahlst weniger pro Track.</p>
+          <p class="en">Release date coming up fast? With Express your master is ready within 2 business days for 30% on top, for mastering and stem mastering. I confirm the slot before we start.</p>
+          <p class="de">Der Release-Termin drängt? Mit Express ist dein Master innerhalb von 2 Werktagen fertig, gegen 30 % Aufschlag, für Mastering und Stem Mastering. Den Slot bestätige ich dir vorab.</p>
+        </div>
         <div class="rtable-wrap">
           <table class="rtable">
             <thead><tr><th><span class="en">Per track</span><span class="de">Pro Track</span></th><th>Mastering</th><th>Stem Mastering</th></tr></thead>
@@ -394,23 +436,7 @@ section[id]{scroll-margin-top:80px}
           </table>
         </div>
       </div>
-      <div>
-        <span class="release-label">Express</span>
-        <h3 class="en">Release date coming up fast?</h3>
-        <h3 class="de">Der Release-Termin drängt?</h3>
-        <p class="en">With Express your master is ready within 2 business days instead of 3 to 7. It costs 30% on top and works for mastering and stem mastering. I confirm the slot before we start, so you know exactly when your master lands.</p>
-        <p class="de">Mit Express ist dein Master innerhalb von 2 Werktagen fertig statt in 3 bis 7. Das kostet 30 % Aufschlag und gilt für Mastering und Stem Mastering. Den Slot bestätige ich dir vorab, damit du genau weißt, wann dein Master kommt.</p>
-        <div class="rtable-wrap">
-          <table class="rtable">
-            <thead><tr><th><span class="en">Single, Express</span><span class="de">Single, Express</span></th><th><span class="en">Price</span><span class="de">Preis</span></th></tr></thead>
-            <tbody>
-              <tr><td>Mastering</td><td>104&nbsp;€</td></tr>
-              <tr><td>Stem Mastering</td><td>169&nbsp;€</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    </details>
     <p class="price-note en">Prices per song, including VAT. Labels and larger projects: ask for a project quote.</p>
     <p class="price-note de">Preise pro Song, inklusive MwSt. Labels und größere Projekte: Projektangebot auf Anfrage.</p>
   </div>
@@ -478,6 +504,10 @@ section[id]{scroll-margin-top:80px}
     <div>
       <h2 class="en">25 years between club culture, broadcast and commercial audio.</h2>
       <h2 class="de">25 Jahre zwischen Clubkultur, Broadcast und Commercial Audio.</h2>
+      <figure class="portrait">
+        <img src="jens-rotte.jpg" width="640" height="640" alt="Jens Rotte, mixing and mastering engineer at Pica Mastering" loading="lazy">
+        <figcaption><strong>Jens Rotte</strong><span class="en">Mixing and mastering engineer, Leipzig</span><span class="de">Mixing- und Mastering-Engineer, Leipzig</span></figcaption>
+      </figure>
     </div>
     <div>
       <p class="body en" style="margin-top:0">I helped build one of the most successful mix shows on German radio and spent years picking what went on air. I still dig through stacks of new music every week. After 25 years that is an archive in my head of how a genre has to sound and what a track needs to work. Enough low end for the club to love it, and enough top end to sound shiny and expensive on the radio. Your track needs both, and I know how much of each. I am not here to make your track as loud as possible. I am here to make it hit the people you made it for, wherever they hear it.</p>
@@ -502,8 +532,8 @@ section[id]{scroll-margin-top:80px}
       </details>
       <details class="faq-item">
         <summary><span class="en">What should I send?</span><span class="de">Was soll ich schicken?</span></summary>
-        <p class="en">For the free test master, send a private download link to your full track as a WAV or AIFF file. A streaming link alone is not enough. See File prep below for preparation details.</p>
-        <p class="de">Für das kostenlose Testmaster brauche ich einen privaten Downloadlink zu deinem vollständigen Track als WAV oder AIFF. Ein reiner Streaminglink reicht nicht. Hinweise findest du unten unter Dateien vorbereiten.</p>
+        <p class="en">For the free test master, send a private download link to your full track as a WAV or AIFF file. A streaming link alone is not enough. How to prepare your files is listed <a href="#prep">right next to the form</a>.</p>
+        <p class="de">Für das kostenlose Testmaster brauche ich einen privaten Downloadlink zu deinem vollständigen Track als WAV oder AIFF. Ein reiner Streaminglink reicht nicht. Wie du deine Dateien vorbereitest, steht <a href="#prep">direkt beim Formular</a>.</p>
       </details>
       <details class="faq-item">
         <summary><span class="en">How fast is the reply?</span><span class="de">Wie schnell kommt die Antwort?</span></summary>
@@ -530,31 +560,6 @@ section[id]{scroll-margin-top:80px}
         <p class="en">Thank you. In your release metadata, list "Jens Rotte" as Mastering Engineer (or Mixing Engineer). In captions and liner notes, use "Mastered by Jens Rotte at Pica Mastering" and tag @picamastering.</p>
         <p class="de">Danke dir. In den Release-Metadaten trägst du "Jens Rotte" als Mastering Engineer ein (beim Mixing als Mixing Engineer). In Captions und Linernotes schreibst du "Mastered by Jens Rotte at Pica Mastering" und markierst @picamastering.</p>
       </details>
-    </div>
-
-    <div class="prep" id="prep">
-      <span class="label en">File prep</span>
-      <span class="label de">Dateien vorbereiten</span>
-      <h3 class="prep-title en">Clean files, better decisions.</h3>
-      <h3 class="prep-title de">Saubere Dateien, bessere Entscheidungen.</h3>
-      <dl class="prep-list en">
-        <div><dt>Format</dt><dd>24-bit or 32-bit float, WAV or AIFF.</dd></div>
-        <div><dt>Sample rate</dt><dd>Same as your project. A 44.1 kHz session bounced to 96 kHz gains nothing.</dd></div>
-        <div><dt>Level</dt><dd>Peaks around -3 dBFS as a guide. Anywhere below 0 dBFS is fine.</dd></div>
-        <div><dt>Stems</dt><dd>Up to 8 groups, all starting at the same point. Played together at unity, they should sound exactly like your mix.</dd></div>
-        <div><dt>Naming</dt><dd>Track order first: 01-Title-Mix01.wav, 02-Title-Mix01.wav.</dd></div>
-        <div><dt>Context</dt><dd>One reference track, a few words on what you are after, and where it will be released.</dd></div>
-        <div><dt>Transfer</dt><dd>WeTransfer, Dropbox or Swisstransfer.</dd></div>
-      </dl>
-      <dl class="prep-list de">
-        <div><dt>Format</dt><dd>24 bit oder 32 bit float, WAV oder AIFF.</dd></div>
-        <div><dt>Samplerate</dt><dd>Wie in deinem Projekt. Eine 44,1-kHz-Session auf 96 kHz zu bouncen bringt nichts.</dd></div>
-        <div><dt>Pegel</dt><dd>Peaks um -3 dBFS als Richtwert. Alles unter 0 dBFS passt.</dd></div>
-        <div><dt>Stems</dt><dd>Bis zu 8 Gruppen, alle mit demselben Startpunkt. Zusammen auf 0 dB abgespielt, klingen sie exakt wie dein Mix.</dd></div>
-        <div><dt>Benennung</dt><dd>Reihenfolge zuerst: 01-Titel-Mix01.wav, 02-Titel-Mix01.wav.</dd></div>
-        <div><dt>Kontext</dt><dd>Ein Referenztrack, ein paar Worte dazu, wo du hinwillst, und wo der Track erscheint.</dd></div>
-        <div><dt>Übertragung</dt><dd>WeTransfer, Dropbox oder Swisstransfer.</dd></div>
-      </dl>
     </div>
   </div>
 </section>
@@ -585,6 +590,27 @@ section[id]{scroll-margin-top:80px}
         <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required autocomplete="email" autocapitalize="off" spellcheck="false" placeholder="you@domain.com"><p class="err" id="err-email" hidden><span class="en">Please check your email address.</span><span class="de">Bitte prüf deine E-Mail-Adresse.</span></p></div>
       </div>
       <div class="field"><label for="f-link" id="f-link-label"><span class="en">Download link</span><span class="de">Downloadlink</span></label><input id="f-link" type="text" inputmode="url" name="track_link" required autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Private download link: Dropbox, WeTransfer..."><p class="err" id="err-link" hidden><span class="en">Please paste a download link, for example from WeTransfer or Dropbox.</span><span class="de">Bitte füg einen Downloadlink ein, zum Beispiel von WeTransfer oder Dropbox.</span></p></div>
+      <details class="prep" id="prep">
+        <summary><span class="en">How to prepare your files</span><span class="de">So bereitest du deine Dateien vor</span></summary>
+        <dl class="prep-list en">
+          <div><dt>Format</dt><dd>24-bit or 32-bit float, WAV or AIFF.</dd></div>
+          <div><dt>Sample rate</dt><dd>Same as your project. A 44.1 kHz session bounced to 96 kHz gains nothing.</dd></div>
+          <div><dt>Level</dt><dd>Peaks around -3 dBFS as a guide. Anywhere below 0 dBFS is fine.</dd></div>
+          <div><dt>Stems</dt><dd>Up to 8 groups, all starting at the same point. Played together at unity, they should sound exactly like your mix.</dd></div>
+          <div><dt>Naming</dt><dd>Track order first: 01-Title-Mix01.wav, 02-Title-Mix01.wav.</dd></div>
+          <div><dt>Context</dt><dd>One reference track, a few words on what you are after, and where it will be released.</dd></div>
+          <div><dt>Transfer</dt><dd>WeTransfer, Dropbox or Swisstransfer.</dd></div>
+        </dl>
+        <dl class="prep-list de">
+          <div><dt>Format</dt><dd>24 bit oder 32 bit float, WAV oder AIFF.</dd></div>
+          <div><dt>Samplerate</dt><dd>Wie in deinem Projekt. Eine 44,1-kHz-Session auf 96 kHz zu bouncen bringt nichts.</dd></div>
+          <div><dt>Pegel</dt><dd>Peaks um -3 dBFS als Richtwert. Alles unter 0 dBFS passt.</dd></div>
+          <div><dt>Stems</dt><dd>Bis zu 8 Gruppen, alle mit demselben Startpunkt. Zusammen auf 0 dB abgespielt, klingen sie exakt wie dein Mix.</dd></div>
+          <div><dt>Benennung</dt><dd>Reihenfolge zuerst: 01-Titel-Mix01.wav, 02-Titel-Mix01.wav.</dd></div>
+          <div><dt>Kontext</dt><dd>Ein Referenztrack, ein paar Worte dazu, wo du hinwillst, und wo der Track erscheint.</dd></div>
+          <div><dt>Übertragung</dt><dd>WeTransfer, Dropbox oder Swisstransfer.</dd></div>
+        </dl>
+      </details>
       <div class="field"><label for="f-context">Context (optional)</label><textarea id="f-context" name="context" placeholder="Genre, references, release date, number of tracks, what you feel is not working..."></textarea></div>
       <button class="submit" type="submit" id="f-submit"><span class="en">Send request</span><span class="de">Anfrage senden</span></button>
       <p class="form-note" id="form-note" hidden>Preview only. The form sends nothing here, on the live site it goes through as usual.</p>
@@ -649,6 +675,14 @@ section[id]{scroll-margin-top:80px}
   setLang(saved);
   document.querySelectorAll('input[name="service"]').forEach(function(r){r.addEventListener('change',refresh)});
   document.getElementById('f-express').addEventListener('change',refresh);
+  var nav=document.getElementById('nav'), mb=document.getElementById('menu-btn');
+  function menu(on){nav.classList.toggle('open',on);mb.setAttribute('aria-expanded',on?'true':'false')}
+  mb.addEventListener('click',function(){menu(!nav.classList.contains('open'))});
+  document.querySelectorAll('#nav-links a').forEach(function(a){a.addEventListener('click',function(){menu(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)});
+  var prep=document.getElementById('prep');
+  document.querySelectorAll('a[href="#prep"]').forEach(function(a){a.addEventListener('click',function(){prep.open=true})});
+  if(location.hash==='#prep')prep.open=true;
   document.querySelectorAll('[data-service]').forEach(function(a){a.addEventListener('click',function(){pick(a.dataset.service)})});
   refresh();
   var live=/(^|\.)picamastering\.com$/.test(location.hostname);
