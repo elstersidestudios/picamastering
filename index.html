@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
 <meta charset="UTF-8">
+<meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Pica Mastering · Stem Mastering · Mixing · Mastering</title>
 <meta name="description" content="Mixing, stem mastering and mastering for electronic and pop records. Your track is close. Let's get it across the finish line.">
@@ -647,11 +648,12 @@ section[id]{scroll-margin-top:80px}
     lang=l;
     document.body.classList.remove('lang-en','lang-de');document.body.classList.add('lang-'+l);
     document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.dataset.lang===l)});
-    try{localStorage.setItem('lang',l)}catch(e){}
+    document.documentElement.lang=l;
   }
   document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
-  var saved='en';try{saved=localStorage.getItem('lang')||'en'}catch(e){}
-  setLang(saved);
+  // Always open in English. German only after a click on DE, never remembered or detected.
+  try{localStorage.removeItem('lang')}catch(e){}
+  setLang('en');
   document.querySelectorAll('input[name="service"]').forEach(function(r){r.addEventListener('change',refresh)});
   document.getElementById('f-express').addEventListener('change',refresh);
   var nav=document.getElementById('nav'), mb=document.getElementById('menu-btn');
